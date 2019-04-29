@@ -4,6 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { HashRouter as Router } from 'react-router-dom'
 import { createMuiTheme } from '@material-ui/core/styles'
 
+import Navigation from '../components/Navigation'
+// import MainView from './MainView'
+
 const theme = createMuiTheme({
     palette: {
         type: 'dark',
@@ -23,6 +26,7 @@ function App() {
         <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Router>
+                <Navigation />
                 <div className="App">
                     <header className="App-header">
                         <p>hello world!</p>
