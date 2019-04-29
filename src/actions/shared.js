@@ -1,4 +1,4 @@
-import { getInitialData } from '../utils/api'
+import { getInitialData } from '../helpers/api'
 import { receiveUsers } from '../actions/users'
 
 export function handleInitialData() {
