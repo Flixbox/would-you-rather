@@ -1,11 +1,14 @@
 import React from 'react'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { HashRouter as Router } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import { createMuiTheme } from '@material-ui/core/styles'
 
 import Navigation from '../components/Navigation'
-// import MainView from './MainView'
+
+import Home from './Home'
+import NewQuestion from './NewQuestion'
+import Leaderboard from './Leaderboard'
 
 const theme = createMuiTheme({
     palette: {
@@ -27,6 +30,12 @@ function App() {
             <CssBaseline />
             <Router>
                 <Navigation />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/new" component={NewQuestion} />
+                    <Route path="/leaderboard" component={Leaderboard} />
+                    <Route component={Home} />
+                </Switch>
                 <div className="App">
                     <header className="App-header">
                         <p>hello world!</p>
