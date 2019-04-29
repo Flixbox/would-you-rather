@@ -11,15 +11,24 @@ const theme = createMuiTheme({
     typography: { useNextVariants: true },
 })
 
+/**
+ * The main app that contains the entire page.
+ * This also contains the theme provider.
+ *
+ * @class App
+ * @extends {Component}
+ */
 function App() {
     return (
         <MuiThemeProvider theme={theme}>
             <CssBaseline />
-            <div className="App">
-                <header className="App-header">
-                    <p>hello world!</p>
-                </header>
-            </div>
+            <Router>
+                <div className="App">
+                    <header className="App-header">
+                        <p>hello world!</p>
+                    </header>
+                </div>
+            </Router>
         </MuiThemeProvider>
     )
 }
