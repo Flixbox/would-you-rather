@@ -7,9 +7,9 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 import Navigation from '../components/Navigation'
 
-import Home from './Home'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
+import Login from './Login'
 
 import { handleInitialData } from '../actions/shared'
 
@@ -33,18 +33,22 @@ class App extends Component {
     }
 
     render() {
+        const { user } = this.props
         return (
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
-                <Router>
-                    <Navigation />
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/new" component={NewQuestion} />
-                        <Route path="/leaderboard" component={Leaderboard} />
-                        <Route component={Home} />
-                    </Switch>
-                </Router>
+                {user ? (
+                    <Router>
+                        <Navigation />
+                        <Switch>
+                            <Route exact path="/" component={Login} />
+                            <Route path="/new" component={NewQuestion} />
+                            <Route path="/leaderboard" component={Leaderboard} />
+                        </Switch>
+                    </Router>
+                ) : (
+                    <Login />
+                )}
             </MuiThemeProvider>
         )
     }
