@@ -5,7 +5,7 @@ export default (state = {}, action) => {
         case SET_AUTHED_USER:
             return {
                 ...state,
-                ...action.authedUser,
+                id: action.id,
             }
         default:
             return state
