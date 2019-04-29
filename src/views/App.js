@@ -36,11 +36,6 @@ function App() {
                     <Route path="/leaderboard" component={Leaderboard} />
                     <Route component={Home} />
                 </Switch>
-                <div className="App">
-                    <header className="App-header">
-                        <p>hello world!</p>
-                    </header>
-                </div>
             </Router>
         </MuiThemeProvider>
     )
