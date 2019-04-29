@@ -54,13 +54,23 @@ const otherAction = {
     id: 'foo',
 }
 
-it('reduces authenticated user', () => {
+it('reduces authenticated user with state', () => {
     expect(authedUserReducer(exampleState, authenticationAction)).toEqual({
         ...exampleState,
         id: 'catherinegregory',
     })
 })
 
-it('handles invalid action', () => {
+it('handles invalid action with state', () => {
     expect(authedUserReducer(exampleState, otherAction)).toEqual(exampleState)
+})
+
+it('reduces authenticated user without state', () => {
+    expect(authedUserReducer(null, authenticationAction)).toEqual({
+        id: 'catherinegregory',
+    })
+})
+
+it('handles invalid action without state', () => {
+    expect(authedUserReducer(null, otherAction)).toEqual(null)
 })
