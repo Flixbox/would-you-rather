@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import user from './authedUser'
+import authedUser from './authedUser'
+import users from './users'
 
 export default combineReducers({
-    user,
+    authedUser,
+    users,
 })

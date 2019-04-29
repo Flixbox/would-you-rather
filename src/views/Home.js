@@ -8,9 +8,10 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps({ user }) {
+function mapStateToProps({ user, users }) {
     return {
         user,
+        users,
     }
 }
 
