@@ -5,7 +5,7 @@ export default function users(state = {}, action) {
         case RECEIVE_USERS:
             return {
                 ...state,
-                ...action.users,
+                users: action.users,
             }
         default:
             return state
