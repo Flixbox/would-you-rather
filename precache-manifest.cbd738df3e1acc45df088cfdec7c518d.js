@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "966c26d4e8430a298da9ecd5d113537f",
+    "revision": "12cd7dae214e4a4d8323dc80ece0b524",
     "url": "/would-you-rather/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/would-you-rather/static/js/2.50b0062b.chunk.js"
   },
   {
-    "revision": "f5f01e9dc6a48df86633",
-    "url": "/would-you-rather/static/js/main.20f68dca.chunk.js"
+    "revision": "182362016ec006a7aa79",
+    "url": "/would-you-rather/static/js/main.5d92d1b1.chunk.js"
   },
   {
     "revision": "3c0bbf8aecd297c26580",
