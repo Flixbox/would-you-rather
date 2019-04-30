@@ -8,7 +8,7 @@ import { Typography } from '@material-ui/core'
 
 const styles = {
     main: {
-        height: '100%',
+        height: '100vh',
     },
     avatar: {
         margin: 10,
@@ -17,6 +17,13 @@ const styles = {
     },
 }
 
+/**
+ * This container allows the user to select from a list of users.
+ * This selection will be stored in the store.
+ *
+ * @class Login
+ * @extends {Component}
+ */
 class Login extends Component {
     render() {
         const { users } = this.props.users
@@ -24,14 +31,14 @@ class Login extends Component {
 
         if (!users) {
             return (
-                <Grid container justify="center" className={classes.main}>
+                <Grid container justify="center" alignItems="center" className={classes.main}>
                     <Typography>No users found!</Typography>
                 </Grid>
             )
         }
 
         return (
-            <Grid container justify="center">
+            <Grid container justify="center" alignItems="center" className={classes.main}>
                 {Object.entries(users).map(([id, user]) => this.renderUser(user))}
             </Grid>
         )
