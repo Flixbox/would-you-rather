@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { withStyles } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar'
-import Grid from '@material-ui/core/Grid'
-import { Typography } from '@material-ui/core'
+import { Typography, Button, Avatar, Grid } from '@material-ui/core'
+
+import { handleLogin } from '../actions/authedUser'
 
 const styles = {
     main: {
@@ -26,6 +26,12 @@ const styles = {
  * @extends {Component}
  */
 class Login extends Component {
+    handleLoginClick = id => {
+        const { dispatch } = this.props
+
+        dispatch(handleLogin(id))
+    }
+
     render() {
         const { users } = this.props.users
         const { classes } = this.props
@@ -56,8 +62,10 @@ class Login extends Component {
         const { classes } = this.props
         return (
             <Grid item key={id}>
-                <Avatar alt={user.name} src={user.avatarURL} className={classes.avatar} />
-                <Typography align="center">{user.name}</Typography>
+                <Button onClick={() => this.handleLoginClick(id)}>
+                    <Avatar alt={user.name} src={user.avatarURL} className={classes.avatar} />
+                    <Typography align="center">{user.name}</Typography>
+                </Button>
             </Grid>
         )
     }
