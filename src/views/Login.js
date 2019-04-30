@@ -7,20 +7,24 @@ import Grid from '@material-ui/core/Grid'
 import { Typography } from '@material-ui/core'
 
 const styles = {
+    main: {
+        height: '100%',
+    },
     avatar: {
         margin: 10,
-        width: 60,
-        height: 60,
+        width: 100,
+        height: 100,
     },
 }
 
 class Login extends Component {
     render() {
-        let { users } = this.props.users
+        const { users } = this.props.users
+        const { classes } = this.props
 
         if (!users) {
             return (
-                <Grid container justify="center">
+                <Grid container justify="center" className={classes.main}>
                     <Typography>No users found!</Typography>
                 </Grid>
             )
@@ -37,7 +41,7 @@ class Login extends Component {
         const { id } = user
         const { classes } = this.props
         return (
-            <Grid item xs={12} m={6} l={3} key={id}>
+            <Grid item key={id}>
                 <Avatar alt={user.name} src={user.avatarURL} className={classes.avatar} />
             </Grid>
         )
