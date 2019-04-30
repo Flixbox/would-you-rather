@@ -9,6 +9,7 @@ import { Typography } from '@material-ui/core'
 const styles = {
     main: {
         height: '100vh',
+        maxWidth: '100vw',
     },
     avatar: {
         margin: 10,
