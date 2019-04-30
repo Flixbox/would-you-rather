@@ -54,4 +54,6 @@ function mapStateToProps({ users }) {
     }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Login))
+const StyledLogin = withStyles(styles)(Login)
+
+export default connect(mapStateToProps)(StyledLogin)
