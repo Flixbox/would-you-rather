@@ -38,7 +38,13 @@ class Login extends Component {
         }
 
         return (
-            <Grid container justify="center" alignItems="center" className={classes.main}>
+            <Grid
+                container
+                justify="center"
+                alignItems="center"
+                className={classes.main}
+                spacing={32}
+            >
                 {Object.entries(users).map(([id, user]) => this.renderUser(user))}
             </Grid>
         )
@@ -50,6 +56,7 @@ class Login extends Component {
         return (
             <Grid item key={id}>
                 <Avatar alt={user.name} src={user.avatarURL} className={classes.avatar} />
+                <Typography align="center">{user.name}</Typography>
             </Grid>
         )
     }
