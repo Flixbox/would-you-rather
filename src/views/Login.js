@@ -39,7 +39,7 @@ class Login extends Component {
         if (!users) {
             return (
                 <Grid container justify="center" alignItems="center" className={classes.main}>
-                    <Typography>No users found!</Typography>
+                    <Typography>Loading users...</Typography>
                 </Grid>
             )
         }

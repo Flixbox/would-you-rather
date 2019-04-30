@@ -23,6 +23,7 @@ const theme = createMuiTheme({
 /**
  * The main app that contains the entire page.
  * This also contains the theme provider.
+ * If the user is not logged in, we'll show the login page.
  *
  * @class App
  * @extends {Component}
@@ -33,11 +34,13 @@ class App extends Component {
     }
 
     render() {
-        const { user } = this.props
+        const { authedUser } = this.props
+        const loggedIn = Object.entries(authedUser).length !== 0
+
         return (
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
-                {user ? (
+                {loggedIn ? (
                     <Router>
                         <Navigation />
                         <Switch>
