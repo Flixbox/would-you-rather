@@ -7,6 +7,7 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 import Navigation from '../components/Navigation'
 
+import CurrentQuestion from './CurrentQuestion'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
 import Login from './Login'
@@ -44,7 +45,7 @@ class App extends Component {
                     <Router>
                         <Navigation />
                         <Switch>
-                            <Route exact path="/" component={Login} />
+                            <Route exact path="/" component={CurrentQuestion} />
                             <Route path="/new" component={NewQuestion} />
                             <Route path="/leaderboard" component={Leaderboard} />
                         </Switch>

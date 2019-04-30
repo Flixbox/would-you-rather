@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Button, Toolbar, AppBar, Typography } from '@material-ui/core'
+import { Button, Toolbar, AppBar } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 const styles = {
