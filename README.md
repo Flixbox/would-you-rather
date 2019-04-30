@@ -9,6 +9,10 @@ Would You Rather? is a game about choice. Log in, answer questions and make your
 -   Run `yarn install`.
 -   Run `yarn start`.
 
+## Unit tests
+
+To run the unit tests, run `yarn run test`. A menu will open and you will be able to select which tests you want to run.
+
 ## Development
 
 While you're running the server, feel free to adjust the files. The server files will be updated automatically and you'll see the changes in the browser.
