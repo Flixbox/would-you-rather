@@ -16,7 +16,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const styles = {
+const styles = theme => ({
     main: {},
     option: {
         flex: '1 0 auto',
@@ -27,8 +27,13 @@ const styles = {
         bottom: 0,
         left: 0,
         right: 0,
+        // Fix height for absolute positioning
+        height: `${theme.custom.footerHeight}px`,
     },
-}
+    icon: {
+        marginBottom: '5px',
+    },
+})
 
 class CurrentQuestion extends Component {
     componentDidMount = () => {
@@ -68,15 +73,15 @@ class CurrentQuestion extends Component {
                 <BottomNavigation showLabels className={classes.footer}>
                     <BottomNavigationAction
                         label="Previous"
-                        icon={<FontAwesomeIcon icon={faArrowLeft} />}
+                        icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
                     />
                     <BottomNavigationAction
                         label={author}
-                        icon={<FontAwesomeIcon icon={faUser} />}
+                        icon={<FontAwesomeIcon icon={faUser} className={classes.icon} />}
                     />
                     <BottomNavigationAction
                         label="Next"
-                        icon={<FontAwesomeIcon icon={faArrowRight} />}
+                        icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
                     />
                 </BottomNavigation>
             </Fragment>

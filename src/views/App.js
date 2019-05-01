@@ -19,6 +19,10 @@ const theme = createMuiTheme({
         type: 'dark',
     },
     typography: { useNextVariants: true },
+    custom: {
+        navbarHeight: 56,
+        footerHeight: 56,
+    },
 })
 
 /**
