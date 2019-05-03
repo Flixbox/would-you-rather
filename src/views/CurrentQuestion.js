@@ -22,12 +22,6 @@ const styles = {
         flex: '1 0 auto',
         width: '50%',
     },
-    footer: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-    },
 }
 
 class CurrentQuestion extends Component {
@@ -65,7 +59,7 @@ class CurrentQuestion extends Component {
                     <div className={classNames(classes.option, classes.optionOne)} />
                     <div className={classNames(classes.option, classes.optionTwo)} />
                 </div>
-                <BottomNavigation showLabels className={classes.footer}>
+                <BottomNavigation showLabels>
                     <BottomNavigationAction
                         label="Previous"
                         icon={<FontAwesomeIcon icon={faArrowLeft} />}
