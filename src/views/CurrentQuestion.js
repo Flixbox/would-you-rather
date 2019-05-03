@@ -21,12 +21,18 @@ import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-i
 
 const styles = {
     main: {
-        height: `calc(100% - ${navHeight * 2}px)`,
+        // The height of the two navbars and the heading is 3xnavHeight
+        height: `calc(100% - ${navHeight * 3}px)`,
     },
     option: {
         flex: '1 0 auto',
         width: '50%',
         height: `100%`,
+    },
+    questionContainer: {
+        width: '100%',
+        padding: '5px',
+        height: `${navHeight}px`,
     },
 }
 
@@ -61,6 +67,11 @@ class CurrentQuestion extends Component {
 
         return (
             <Fragment>
+                <div className={classes.questionContainer}>
+                    <Typography variant="h3" align="center">
+                        Would you rather...
+                    </Typography>
+                </div>
                 <Grid container className={classes.main}>
                     <Option {...optionOne} />
                     <Option {...optionTwo} />
