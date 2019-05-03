@@ -73,8 +73,8 @@ class CurrentQuestion extends Component {
                     </Typography>
                 </div>
                 <Grid container className={classes.main}>
-                    <Option {...optionOne} />
-                    <Option {...optionTwo} />
+                    <Option {...optionOne} option="optionOne" />
+                    <Option {...optionTwo} option="optionTwo" />
                 </Grid>
                 <BottomNavigation showLabels>
                     <BottomNavigationAction

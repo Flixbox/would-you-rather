@@ -24,16 +24,21 @@ const styles = {
         height: `100%`,
         padding: '5px',
     },
+    optionButton: {
+        height: '100%',
+        width: '100%',
+        textTransform: 'none',
+    },
 }
 
 class Option extends Component {
     render() {
-        const { classes, questions, text, votes } = this.props
+        const { classes, questions, text, votes, option } = this.props
         return (
-            <Grid container className={classes.main} alignContent="center">
-                <Grid item xs={12}>
+            <Grid container className={classes.main}>
+                <Button className={classes.optionButton} align="center">
                     <Typography variant="h3">{text}</Typography>
-                </Grid>
+                </Button>
             </Grid>
         )
     }
