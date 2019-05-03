@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import PieChart from 'react-minimal-pie-chart'
+import { theme } from '../helpers/theme'
 
 const styles = {
     main: {
@@ -79,19 +80,28 @@ class Option extends Component {
 
     renderPieChart = () => {
         const { classes, authedUser, text, votes, option, opposite } = this.props
+        const votesThisOption = votes.length
+        const votesOppositeOption = opposite.votes.length
         return (
             <Grid item xs={12} className={classes.chartContainer} align="center">
                 <PieChart
                     className={classes.chart}
                     data={[
-                        { title: 'One', value: 10, color: '#E38627' },
-                        { title: 'Two', value: 15, color: '#C13C37' },
-                        { title: 'Three', value: 20, color: '#6A2135' },
+                        {
+                            title: 'This option',
+                            value: votesThisOption,
+                            color: theme.palette.primary.main,
+                        },
+                        {
+                            title: 'Opposite option',
+                            value: votesOppositeOption,
+                            color: theme.palette.secondary.main,
+                        },
                     ]}
                     animate
                     label
                     labelStyle={{
-                        fill: 'white',
+                        fill: theme.palette.primary.contrastText,
                     }}
                 />
             </Grid>
