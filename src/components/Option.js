@@ -92,17 +92,13 @@ class Option extends Component {
                             value: votesThisOption,
                             color: theme.palette.primary.main,
                         },
-                        {
-                            title: 'Opposite option',
-                            value: votesOppositeOption,
-                            color: theme.palette.secondary.main,
-                        },
                     ]}
                     animate
                     label
                     labelStyle={{
                         fill: theme.palette.primary.contrastText,
                     }}
+                    totalValue={votesOppositeOption + votesThisOption}
                 />
             </Grid>
         )
