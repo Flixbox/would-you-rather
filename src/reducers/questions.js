@@ -36,7 +36,6 @@ export default (state = {}, action) => {
             }
         case SAVE_QUESTION_ANSWER:
             const { authedUser, qid, answer } = action
-            console.log(state)
             // This is basically stolen from the _DATA.js code
             const questions = {
                 ...state.questions,
