@@ -36,6 +36,13 @@ const styles = {
         width: '100%',
         textTransform: 'none',
     },
+    chartContainer: {
+        maxHeight: '50%',
+    },
+    chart: {
+        // Limit the chart's width and height, otherwise the chart might go through the bottom of the viewport.
+        maxWidth: '20vh',
+    },
 }
 
 class Option extends Component {
@@ -63,9 +70,9 @@ class Option extends Component {
                         <Grid item xs={12} className={classes.answerContainer}>
                             <Typography variant="h3">{text}</Typography>
                         </Grid>
-                        {hasVoted ? this.renderPieChart() : null}
                     </Grid>
                 </Button>
+                {hasVoted ? this.renderPieChart() : null}
             </Grid>
         )
     }
@@ -73,8 +80,20 @@ class Option extends Component {
     renderPieChart = () => {
         const { classes, authedUser, text, votes, option, opposite } = this.props
         return (
-            <Grid item xs={12} className={classes.chartContainer}>
-                Pie chart
+            <Grid item xs={12} className={classes.chartContainer} align="center">
+                <PieChart
+                    className={classes.chart}
+                    data={[
+                        { title: 'One', value: 10, color: '#E38627' },
+                        { title: 'Two', value: 15, color: '#C13C37' },
+                        { title: 'Three', value: 20, color: '#6A2135' },
+                    ]}
+                    animate
+                    label
+                    labelStyle={{
+                        fill: 'white',
+                    }}
+                />
             </Grid>
         )
     }
