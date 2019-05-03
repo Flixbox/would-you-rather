@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Button, Toolbar, AppBar } from '@material-ui/core'
+import { Button, Toolbar, AppBar, Avatar } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const styles = {
     grow: {
@@ -12,6 +13,11 @@ const styles = {
         marginRight: 20,
         textDecoration: 'none',
         color: 'white',
+        maxHeight: '100%',
+    },
+    avatar: {
+        maxHeight: '100%',
+        float: 'right',
     },
 }
 
@@ -23,7 +29,9 @@ const styles = {
  */
 class Navigation extends Component {
     render() {
-        const { classes, authedUser } = this.props
+        const { classes, authedUser, users } = this.props
+
+        const avatarURL = users.users[authedUser.id].avatarURL
 
         return (
             <div>
@@ -39,8 +47,10 @@ class Navigation extends Component {
                             <Link to="/leaderboard" replace className={classes.menuButton}>
                                 <Button color="inherit">Leaderboard</Button>
                             </Link>
+                            <div className={classes.grow} />
                             <Link to="/profile" replace className={classes.menuButton}>
                                 <Button color="inherit">{authedUser.id}</Button>
+                                <Avatar alt="avatar" src={avatarURL} className={classes.avatar} />
                             </Link>
                         </Toolbar>
                     </AppBar>
@@ -50,4 +60,13 @@ class Navigation extends Component {
     }
 }
 
-export default withStyles(styles)(Navigation)
+function mapStateToProps({ users, authedUser }) {
+    return {
+        users,
+        authedUser,
+    }
+}
+
+const StyledNavigation = withStyles(styles)(Navigation)
+
+export default connect(mapStateToProps)(StyledNavigation)
