@@ -31,27 +31,52 @@ const styles = {
         width: '100%',
         textTransform: 'none',
     },
+    optionButtonVoted: {
+        height: '50%',
+        width: '100%',
+        textTransform: 'none',
+    },
 }
 
 class Option extends Component {
     render() {
-        const { classes, authedUser, text, votes, option, handleQuestionAnswer } = this.props
+        const {
+            classes,
+            authedUser,
+            text,
+            votes,
+            option,
+            handleQuestionAnswer,
+            opposite,
+        } = this.props
+
+        const hasVoted = opposite.votes.includes(authedUser.id) || votes.includes(authedUser.id)
+
         return (
             <Grid container className={classes.main}>
                 <Button
-                    className={classes.optionButton}
+                    className={hasVoted ? classes.optionButtonVoted : classes.optionButton}
                     align="center"
                     onClick={() => handleQuestionAnswer(option)}
                 >
-                    <Typography variant="h3">{text}</Typography>
-                    {votes.includes(authedUser) ? this.renderPieChart : null}
+                    <Grid container>
+                        <Grid item xs={12} className={classes.answerContainer}>
+                            <Typography variant="h3">{text}</Typography>
+                        </Grid>
+                        {hasVoted ? this.renderPieChart() : null}
+                    </Grid>
                 </Button>
             </Grid>
         )
     }
 
     renderPieChart = () => {
-        return <div>Pie chart</div>
+        const { classes, authedUser, text, votes, option, opposite } = this.props
+        return (
+            <Grid item xs={12} className={classes.chartContainer}>
+                Pie chart
+            </Grid>
+        )
     }
 }
 

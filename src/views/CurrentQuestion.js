@@ -85,12 +85,14 @@ class CurrentQuestion extends Component {
                         option="optionOne"
                         handleQuestionAnswer={this.handleQuestionAnswer}
                         authedUser={authedUser}
+                        opposite={optionTwo}
                     />
                     <Option
                         {...optionTwo}
                         option="optionTwo"
                         handleQuestionAnswer={this.handleQuestionAnswer}
                         authedUser={authedUser}
+                        opposite={optionOne}
                     />
                 </Grid>
                 <BottomNavigation showLabels>
