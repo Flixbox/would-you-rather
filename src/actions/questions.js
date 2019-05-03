@@ -35,7 +35,7 @@ export function setQuestionAnswer({ authedUser, qid, answer }) {
 
 export function handleQuestionAnswer({ authedUser, qid, answer }) {
     return dispatch => {
-        dispatch(setQuestionAnswer({ authedUser, qid, answer }))
+        dispatch(setQuestionAnswer({ authedUser: authedUser.id, qid, answer }))
 
         return saveQuestionAnswer({ authedUser: authedUser.id, qid, answer }).catch(e => {
             console.warn('Error in handleQuestionAnswer: ', e)
