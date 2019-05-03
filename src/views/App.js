@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import { createMuiTheme } from '@material-ui/core/styles'
 
 import Navigation from '../components/Navigation'
 
@@ -13,37 +12,7 @@ import Leaderboard from './Leaderboard'
 import Login from './Login'
 
 import { handleInitialData } from '../actions/shared'
-
-export const navHeight = 56
-
-const theme = createMuiTheme({
-    palette: {
-        type: 'dark',
-    },
-    overrides: {
-        MuiToolbar: {
-            regular: {
-                '&&': {
-                    minHeight: `${navHeight}px`,
-                    height: `${navHeight}px`,
-                    maxHeight: `${navHeight}px`,
-                },
-            },
-        },
-        MuiBottomNavigation: {
-            root: {
-                minHeight: `${navHeight}px`,
-                height: `${navHeight}px`,
-                maxHeight: `${navHeight}px`,
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-            },
-        },
-    },
-    typography: { useNextVariants: true },
-})
+import { theme } from '../helpers/theme'
 
 /**
  * The main app that contains the entire page.

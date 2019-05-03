@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleRetrieveNewQuestion } from '../actions/questions'
 
+import { navHeight } from '../helpers/theme'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import {
@@ -17,10 +18,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const styles = {
-    main: {},
+    main: {
+        height: `calc(100% - ${navHeight * 2}px)`,
+    },
     option: {
         flex: '1 0 auto',
         width: '50%',
+        height: `100%`,
     },
 }
 
@@ -55,10 +59,10 @@ class CurrentQuestion extends Component {
 
         return (
             <Fragment>
-                <div className={classes.main}>
+                <Grid container className={classes.main}>
                     <div className={classNames(classes.option, classes.optionOne)} />
                     <div className={classNames(classes.option, classes.optionTwo)} />
-                </div>
+                </Grid>
                 <BottomNavigation showLabels>
                     <BottomNavigationAction
                         label="Previous"
