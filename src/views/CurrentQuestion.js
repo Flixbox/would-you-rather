@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleRetrieveNewQuestion } from '../actions/questions'
 
+import Option from '../components/Option'
+
 import { navHeight } from '../helpers/theme'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
@@ -60,8 +62,8 @@ class CurrentQuestion extends Component {
         return (
             <Fragment>
                 <Grid container className={classes.main}>
-                    <div className={classNames(classes.option, classes.optionOne)} />
-                    <div className={classNames(classes.option, classes.optionTwo)} />
+                    <Option {...optionOne} />
+                    <Option {...optionTwo} />
                 </Grid>
                 <BottomNavigation showLabels>
                     <BottomNavigationAction
