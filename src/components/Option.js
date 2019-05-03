@@ -17,6 +17,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
 
+import PieChart from 'react-minimal-pie-chart'
+
 const styles = {
     main: {
         flex: '1 0 auto',
@@ -33,7 +35,7 @@ const styles = {
 
 class Option extends Component {
     render() {
-        const { classes, questions, text, votes, option, handleQuestionAnswer } = this.props
+        const { classes, authedUser, text, votes, option, handleQuestionAnswer } = this.props
         return (
             <Grid container className={classes.main}>
                 <Button
@@ -42,18 +44,17 @@ class Option extends Component {
                     onClick={() => handleQuestionAnswer(option)}
                 >
                     <Typography variant="h3">{text}</Typography>
+                    {votes.includes(authedUser) ? this.renderPieChart : null}
                 </Button>
             </Grid>
         )
     }
-}
 
-function mapStateToProps({ users }) {
-    return {
-        users,
+    renderPieChart = () => {
+        return <div>Pie chart</div>
     }
 }
 
 const StyledOption = withStyles(styles)(Option)
 
-export default connect(mapStateToProps)(StyledOption)
+export default StyledOption

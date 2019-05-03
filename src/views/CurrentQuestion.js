@@ -56,12 +56,10 @@ class CurrentQuestion extends Component {
         const { currentQuestion } = this.props.questions
 
         dispatch(handleQuestionAnswer({ authedUser, qid: currentQuestion, answer: option }))
-
-        console.log('test')
     }
 
     render() {
-        const { classes } = this.props
+        const { classes, authedUser } = this.props
         const { currentQuestion, questions } = this.props.questions
 
         if (!currentQuestion) {
@@ -86,11 +84,13 @@ class CurrentQuestion extends Component {
                         {...optionOne}
                         option="optionOne"
                         handleQuestionAnswer={this.handleQuestionAnswer}
+                        authedUser={authedUser}
                     />
                     <Option
                         {...optionTwo}
                         option="optionTwo"
                         handleQuestionAnswer={this.handleQuestionAnswer}
+                        authedUser={authedUser}
                     />
                 </Grid>
                 <BottomNavigation showLabels>
@@ -112,7 +112,7 @@ class CurrentQuestion extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions, currentQuestion }) {
+function mapStateToProps({ authedUser, questions }) {
     return {
         authedUser,
         questions,

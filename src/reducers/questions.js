@@ -50,7 +50,7 @@ export default (state = {}, action) => {
             }
             return {
                 ...state,
-                ...questions,
+                questions: { ...questions },
             }
         default:
             return state
