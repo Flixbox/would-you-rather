@@ -33,10 +33,14 @@ const styles = {
 
 class Option extends Component {
     render() {
-        const { classes, questions, text, votes, option } = this.props
+        const { classes, questions, text, votes, option, handleQuestionAnswer } = this.props
         return (
             <Grid container className={classes.main}>
-                <Button className={classes.optionButton} align="center">
+                <Button
+                    className={classes.optionButton}
+                    align="center"
+                    onClick={() => handleQuestionAnswer(option)}
+                >
                     <Typography variant="h3">{text}</Typography>
                 </Button>
             </Grid>
@@ -44,10 +48,9 @@ class Option extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions, currentQuestion }) {
+function mapStateToProps({ users }) {
     return {
-        authedUser,
-        questions,
+        users,
     }
 }
 

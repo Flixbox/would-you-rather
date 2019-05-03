@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { handleRetrieveNewQuestion } from '../actions/questions'
+import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
 
 import Option from '../components/Option'
 
@@ -51,6 +51,15 @@ class CurrentQuestion extends Component {
         dispatch(handleRetrieveNewQuestion(authedUser))
     }
 
+    handleQuestionAnswer = option => {
+        const { dispatch, authedUser } = this.props
+        const { currentQuestion } = this.props.questions
+
+        dispatch(handleQuestionAnswer({ authedUser, qid: currentQuestion, answer: option }))
+
+        console.log('test')
+    }
+
     render() {
         const { classes } = this.props
         const { currentQuestion, questions } = this.props.questions
@@ -73,8 +82,16 @@ class CurrentQuestion extends Component {
                     </Typography>
                 </div>
                 <Grid container className={classes.main}>
-                    <Option {...optionOne} option="optionOne" />
-                    <Option {...optionTwo} option="optionTwo" />
+                    <Option
+                        {...optionOne}
+                        option="optionOne"
+                        handleQuestionAnswer={this.handleQuestionAnswer}
+                    />
+                    <Option
+                        {...optionTwo}
+                        option="optionTwo"
+                        handleQuestionAnswer={this.handleQuestionAnswer}
+                    />
                 </Grid>
                 <BottomNavigation showLabels>
                     <BottomNavigationAction
