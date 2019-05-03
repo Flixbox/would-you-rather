@@ -23,7 +23,7 @@ const styles = {
  */
 class Navigation extends Component {
     render() {
-        const { classes } = this.props
+        const { classes, authedUser } = this.props
 
         return (
             <div>
@@ -38,6 +38,9 @@ class Navigation extends Component {
                             </Link>
                             <Link to="/leaderboard" replace className={classes.menuButton}>
                                 <Button color="inherit">Leaderboard</Button>
+                            </Link>
+                            <Link to="/profile" replace className={classes.menuButton}>
+                                <Button color="inherit">{authedUser.id}</Button>
                             </Link>
                         </Toolbar>
                     </AppBar>

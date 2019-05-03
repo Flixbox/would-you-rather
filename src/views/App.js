@@ -36,7 +36,7 @@ class App extends Component {
                 <CssBaseline />
                 {loggedIn ? (
                     <Router>
-                        <Navigation />
+                        <Navigation authedUser={authedUser} />
                         <Switch>
                             <Route exact path="/" component={CurrentQuestion} />
                             <Route path="/new" component={NewQuestion} />
