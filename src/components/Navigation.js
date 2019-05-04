@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Button, Toolbar, AppBar } from '@material-ui/core'
+import { Button, Toolbar, AppBar, Avatar } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const styles = theme => ({
     root: {
@@ -14,6 +15,11 @@ const styles = theme => ({
         marginRight: 20,
         textDecoration: 'none',
         color: 'white',
+        maxHeight: '100%',
+    },
+    avatar: {
+        maxHeight: '100%',
+        float: 'right',
     },
 })
 
@@ -25,24 +31,44 @@ const styles = theme => ({
  */
 class Navigation extends Component {
     render() {
-        const { classes } = this.props
+        const { classes, authedUser, users } = this.props
+
+        const avatarURL = users.users[authedUser.id].avatarURL
 
         return (
-            <AppBar position="static" className={classes.root}>
-                <Toolbar className={classes.root}>
-                    <Link to="/" replace className={classes.menuButton}>
-                        <Button color="inherit">Would You Rather?</Button>
-                    </Link>
-                    <Link to="/new" replace className={classes.menuButton}>
-                        <Button color="inherit">New Question</Button>
-                    </Link>
-                    <Link to="/leaderboard" replace className={classes.menuButton}>
-                        <Button color="inherit">Leaderboard</Button>
-                    </Link>
-                </Toolbar>
-            </AppBar>
+            <div>
+                <div className={classes.root}>
+                    <AppBar position="static">
+                        <Toolbar className={classes.navBar}>
+                            <Link to="/" replace className={classes.menuButton}>
+                                <Button color="inherit">Would You Rather?</Button>
+                            </Link>
+                            <Link to="/new" replace className={classes.menuButton}>
+                                <Button color="inherit">New Question</Button>
+                            </Link>
+                            <Link to="/leaderboard" replace className={classes.menuButton}>
+                                <Button color="inherit">Leaderboard</Button>
+                            </Link>
+                            <div className={classes.grow} />
+                            <Link to="/profile" replace className={classes.menuButton}>
+                                <Button color="inherit">{authedUser.id}</Button>
+                                <Avatar alt="avatar" src={avatarURL} className={classes.avatar} />
+                            </Link>
+                        </Toolbar>
+                    </AppBar>
+                </div>
+            </div>
         )
     }
 }
 
-export default withStyles(styles)(Navigation)
+function mapStateToProps({ users, authedUser }) {
+    return {
+        users,
+        authedUser,
+    }
+}
+
+const StyledNavigation = withStyles(styles)(Navigation)
+
+export default connect(mapStateToProps)(StyledNavigation)

@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { handleRetrieveNewQuestion } from '../actions/questions'
+import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
 
+import Option from '../components/Option'
+
+import { navHeight } from '../helpers/theme'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import {
@@ -16,24 +19,25 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const styles = theme => ({
-    main: {},
+const styles = {
+    main: {
+        // The height of the two navbars and the heading is 3xnavHeight
+        height: `calc(100% - ${navHeight * 3}px)`,
+    },
     option: {
         flex: '1 0 auto',
         width: '50%',
+        height: `100%`,
     },
-    footer: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        // Fix height for absolute positioning
-        height: `${theme.custom.footerHeight}px`,
+    questionContainer: {
+        width: '100%',
+        padding: '5px',
+        height: `${navHeight}px`,
     },
     icon: {
         marginBottom: '5px',
     },
-})
+}
 
 class CurrentQuestion extends Component {
     componentDidMount = () => {
@@ -50,8 +54,15 @@ class CurrentQuestion extends Component {
         dispatch(handleRetrieveNewQuestion(authedUser))
     }
 
+    handleQuestionAnswer = option => {
+        const { dispatch, authedUser } = this.props
+        const { currentQuestion } = this.props.questions
+
+        dispatch(handleQuestionAnswer({ authedUser, qid: currentQuestion, answer: option }))
+    }
+
     render() {
-        const { classes } = this.props
+        const { classes, authedUser } = this.props
         const { currentQuestion, questions } = this.props.questions
 
         if (!currentQuestion) {
@@ -66,11 +77,28 @@ class CurrentQuestion extends Component {
 
         return (
             <Fragment>
-                <div className={classes.main}>
-                    <div className={classNames(classes.option, classes.optionOne)} />
-                    <div className={classNames(classes.option, classes.optionTwo)} />
+                <div className={classes.questionContainer}>
+                    <Typography variant="h3" align="center">
+                        Would you rather...
+                    </Typography>
                 </div>
-                <BottomNavigation showLabels className={classes.footer}>
+                <Grid container className={classes.main}>
+                    <Option
+                        {...optionOne}
+                        option="optionOne"
+                        handleQuestionAnswer={this.handleQuestionAnswer}
+                        authedUser={authedUser}
+                        opposite={optionTwo}
+                    />
+                    <Option
+                        {...optionTwo}
+                        option="optionTwo"
+                        handleQuestionAnswer={this.handleQuestionAnswer}
+                        authedUser={authedUser}
+                        opposite={optionOne}
+                    />
+                </Grid>
+                <BottomNavigation showLabels>
                     <BottomNavigationAction
                         label="Previous"
                         icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
@@ -89,7 +117,7 @@ class CurrentQuestion extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions, currentQuestion }) {
+function mapStateToProps({ authedUser, questions }) {
     return {
         authedUser,
         questions,
