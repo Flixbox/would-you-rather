@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const styles = theme => ({
-    root: {
-        // Fix height for absolute positioning
-        height: `${theme.custom.navbarHeight}px`,
-        minHeight: `${theme.custom.navbarHeight}px`,
-    },
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
