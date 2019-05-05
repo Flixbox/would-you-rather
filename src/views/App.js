@@ -29,7 +29,7 @@ class App extends Component {
 
     render() {
         const { authedUser } = this.props
-        const loggedIn = Object.entries(authedUser).length !== 0
+        const loggedIn = Object.entries(authedUser).length !== 0 && authedUser.id
 
         return (
             <MuiThemeProvider theme={theme}>

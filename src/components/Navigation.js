@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { Button, Toolbar, AppBar, Avatar } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { handleLogout } from '../actions/authedUser'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -31,6 +32,12 @@ const styles = theme => ({
  * @extends {Component}
  */
 class Navigation extends Component {
+    handleLogoutClick = () => {
+        const { dispatch } = this.props
+
+        dispatch(handleLogout())
+    }
+
     render() {
         const { classes, authedUser, users } = this.props
 
@@ -55,7 +62,7 @@ class Navigation extends Component {
                                 <Button color="inherit">{authedUser.id}</Button>
                                 <Avatar alt="avatar" src={avatarURL} className={classes.avatar} />
                             </Link>
-                            <Button color="inherit">
+                            <Button color="inherit" onClick={() => this.handleLogoutClick()}>
                                 <FontAwesomeIcon icon={faSignOutAlt} />
                             </Button>
                         </Toolbar>
