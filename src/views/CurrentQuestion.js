@@ -5,7 +5,6 @@ import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/ques
 import Option from '../components/Option'
 
 import { navHeight } from '../helpers/theme'
-import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import {
     Typography,

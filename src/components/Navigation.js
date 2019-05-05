@@ -16,6 +16,9 @@ const styles = theme => ({
         maxHeight: '100%',
         float: 'right',
     },
+    grow: {
+        flexGrow: 1,
+    },
 })
 
 /**
