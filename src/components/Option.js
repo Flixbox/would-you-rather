@@ -27,6 +27,9 @@ const styles = {
         height: `100%`,
         padding: '5px',
     },
+    choseThisOption: {
+        backgroundColor: theme.palette.secondary.main,
+    },
     optionButton: {
         height: '100%',
         width: '100%',
@@ -58,10 +61,19 @@ class Option extends Component {
             opposite,
         } = this.props
 
-        const hasVoted = opposite.votes.includes(authedUser.id) || votes.includes(authedUser.id)
+        const choseThisOption = votes.includes(authedUser.id)
+        const hasVoted = opposite.votes.includes(authedUser.id) || choseThisOption
+
+        console.log(theme)
 
         return (
-            <Grid container className={classes.main}>
+            <Grid
+                container
+                className={classNames(
+                    classes.main,
+                    choseThisOption ? classes.choseThisOption : null
+                )}
+            >
                 <Button
                     className={hasVoted ? classes.optionButtonVoted : classes.optionButton}
                     align="center"
