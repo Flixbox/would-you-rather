@@ -64,8 +64,6 @@ class Option extends Component {
         const choseThisOption = votes.includes(authedUser.id)
         const hasVoted = opposite.votes.includes(authedUser.id) || choseThisOption
 
-        console.log(theme)
-
         return (
             <Grid
                 container
