@@ -4,8 +4,6 @@ import { handleRetrieveNewQuestion } from '../actions/questions'
 
 import { Redirect } from 'react-router-dom'
 
-import Question from '../views/Question'
-
 import { Typography, Grid } from '@material-ui/core'
 
 /**

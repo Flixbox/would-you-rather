@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
+import { handleQuestionAnswer } from '../actions/questions'
 
 import Option from '../components/Option'
 
@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const styles = {
     main: {
