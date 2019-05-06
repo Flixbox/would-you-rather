@@ -76,7 +76,12 @@ class Question extends Component {
      */
     getNextQuestion = (question, questions) => {
         const questionArray = this.getQuestionArray(questions)
-        return question
+        const currentId = questionArray.indexOf(questions[question])
+        if (currentId >= questionArray.length - 1) {
+            // Link to current question; TODO disable button instead
+            return questions[question].id
+        }
+        return questionArray[currentId + 1].id
     }
 
     /**
