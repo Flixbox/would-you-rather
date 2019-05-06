@@ -1,21 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { handleRetrieveNewQuestion } from '../actions/questions'
+import React, { Component } from 'react'
 
-import { navHeight } from '../helpers/theme'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import {
-    Typography,
-    Button,
-    Avatar,
-    Grid,
-    BottomNavigation,
-    BottomNavigationAction,
-} from '@material-ui/core'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons'
+import { Typography, Button, Grid } from '@material-ui/core'
 
 import PieChart from 'react-minimal-pie-chart'
 import { theme } from '../helpers/theme'
@@ -90,7 +77,7 @@ class Option extends Component {
     }
 
     renderPieChart = () => {
-        const { classes, authedUser, text, votes, option, opposite } = this.props
+        const { classes, votes, opposite } = this.props
 
         const votesThisOption = votes.length
         const votesOppositeOption = opposite.votes.length
@@ -118,7 +105,6 @@ class Option extends Component {
                 <Typography variant="body1">{percent}%</Typography>
             </Grid>
         )
-        // TODO Add percentage
     }
 }
 
