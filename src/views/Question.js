@@ -90,9 +90,33 @@ class Question extends Component {
      * @memberof Question
      */
     getQuestionArray = questions => {
+        const { filter, authedUser } = this.props
         let questionArray = []
         for (const question in questions) {
-            questionArray.push(questions[question])
+            const votes = [
+                ...questions[question].optionOne.votes,
+                ...questions[question].optionTwo.votes,
+            ]
+
+            switch (filter) {
+                case 1:
+                    // Unanswered only
+                    if (!votes.includes(authedUser.id)) {
+                        questionArray.push(questions[question])
+                        console.log(`${authedUser.id} is not in votes!`, votes)
+                    }
+                    break
+                case 2:
+                    // Answered only
+                    if (votes.includes(authedUser.id)) {
+                        questionArray.push(questions[question])
+                    }
+                    break
+                default:
+                    // No filter
+                    questionArray.push(questions[question])
+                    break
+            }
         }
         questionArray.sort((a, b) => {
             return a.timestamp - b.timestamp
@@ -174,10 +198,11 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions }) {
+function mapStateToProps({ authedUser, questions, filter }) {
     return {
         authedUser,
         questions,
+        filter,
     }
 }
 

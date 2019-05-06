@@ -53,7 +53,6 @@ class Navigation extends Component {
     handleClose = id => {
         const { dispatch } = this.props
         this.setState({ anchorEl: null })
-        console.log(id)
         dispatch(handleFilterChange(id))
     }
 
