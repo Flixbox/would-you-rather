@@ -41,7 +41,7 @@ const styles = {
 
 /**
  * This view renders a question and its data.
- * The prop "question" is the ID of the question that should be rendered.
+ * The prop "match.params.question" is the ID of the question that should be rendered (so the question is in the URL).
  *
  * @class Question
  * @extends {Component}
