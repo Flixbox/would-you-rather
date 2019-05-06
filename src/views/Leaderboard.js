@@ -23,7 +23,13 @@ class Leaderboard extends Component {
     }
 
     renderListItem = user => {
-        return <ListItem alignItems="flex-start" key={user.id} />
+        return (
+            <ListItem alignItems="flex-start" key={user.id}>
+                <ListItemAvatar>
+                    <Avatar alt={user.id} src={user.avatarURL} />
+                </ListItemAvatar>
+            </ListItem>
+        )
     }
 }
 
