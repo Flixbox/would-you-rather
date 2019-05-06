@@ -2,6 +2,15 @@
 
 Would You Rather? is a game about choice. Log in, answer questions and make your own questions!
 
+## A hint about the list functionality...
+
+This project does not contain the classic list of questions. Instead, the user can navigate through the questions one by one.
+The questions are sorted by timestamp and the user is able to filter them in the navigation bar.
+
+When the user applies a filter, they aren't immediately redirected (because the filter can be changed from anywhere in the app).
+
+Trust me, this was more complex than the list would've been. It works though. And it looks nice.
+
 ## Starting the application
 
 -   Install yarn.
