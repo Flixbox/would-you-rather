@@ -144,7 +144,7 @@ class Question extends Component {
             )
         }
 
-        const { id, author, optionOne, optionTwo } = questions[question]
+        const { author, optionOne, optionTwo } = questions[question]
 
         const previousQuestion = this.getPreviousQuestion(question, questions)
         const nextQuestion = this.getNextQuestion(question, questions)
