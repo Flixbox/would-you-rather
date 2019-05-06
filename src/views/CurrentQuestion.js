@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
+import { handleRetrieveNewQuestion } from '../actions/questions'
 
 import { Redirect } from 'react-router-dom'
 
