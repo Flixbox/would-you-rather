@@ -47,13 +47,15 @@ const styles = {
  */
 class Question extends Component {
     handleQuestionAnswer = option => {
-        const { dispatch, authedUser, question } = this.props
+        const { dispatch, authedUser, match } = this.props
+        const { question } = match.params
 
         dispatch(handleQuestionAnswer({ authedUser, qid: question, answer: option }))
     }
 
     render() {
-        const { classes, authedUser, question } = this.props
+        const { classes, authedUser, match } = this.props
+        const { question } = match.params
         const { questions } = this.props.questions
 
         if (!question) {
