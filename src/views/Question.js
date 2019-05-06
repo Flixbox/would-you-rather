@@ -63,7 +63,7 @@ class Question extends Component {
         const questionArray = this.getQuestionArray(questions)
         const currentId = questionArray.indexOf(questions[question])
         if (currentId <= 0) {
-            // Link to current question; TODO disable button instead
+            // Link to current question
             return questions[question].id
         }
         return questionArray[currentId - 1].id
@@ -78,7 +78,7 @@ class Question extends Component {
         const questionArray = this.getQuestionArray(questions)
         const currentId = questionArray.indexOf(questions[question])
         if (currentId >= questionArray.length - 1) {
-            // Link to current question; TODO disable button instead
+            // Link to current question
             return questions[question].id
         }
         return questionArray[currentId + 1].id
@@ -155,6 +155,7 @@ class Question extends Component {
                         to={`/questions/${previousQuestion}`}
                         label="Previous"
                         icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
+                        disabled={previousQuestion === question}
                     />
                     <BottomNavigationAction
                         label={author}
@@ -165,6 +166,7 @@ class Question extends Component {
                         to={`/questions/${nextQuestion}`}
                         label="Next"
                         icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
+                        disabled={nextQuestion === question}
                     />
                 </BottomNavigation>
             </Fragment>
