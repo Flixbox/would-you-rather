@@ -54,7 +54,10 @@ class Navigation extends Component {
         const { dispatch } = this.props
         this.setState({ anchorEl: null })
         dispatch(handleFilterChange(id))
-        // Should we redirect after the filter has changed? I'd say no, since that's not the expected behaviour and the Navbar is global, so the user might change the filter in the leaderboard and suddenly be redirected to the question page.
+        // Should we redirect after the filter has changed?
+        // I'd say no, since that's not the expected behaviour and the Navbar is global,
+        // so the user might change the filter in the leaderboard
+        // and suddenly be redirected to the question page.
     }
 
     render() {
