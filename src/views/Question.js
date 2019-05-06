@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
 
 import Option from '../components/Option'
@@ -53,6 +54,14 @@ class Question extends Component {
         dispatch(handleQuestionAnswer({ authedUser, qid: question, answer: option }))
     }
 
+    getPreviousQuestion = (question, questions) => {
+        return question
+    }
+
+    getNextQuestion = (question, questions) => {
+        return question
+    }
+
     render() {
         const { classes, authedUser, match } = this.props
         const { question } = match.params
@@ -71,6 +80,9 @@ class Question extends Component {
         }
 
         const { id, author, optionOne, optionTwo } = questions[question]
+
+        const previousQuestion = this.getPreviousQuestion(question, questions)
+        const nextQuestion = this.getNextQuestion(question, questions)
 
         return (
             <Fragment>
@@ -96,18 +108,22 @@ class Question extends Component {
                     />
                 </Grid>
                 <BottomNavigation showLabels>
-                    <BottomNavigationAction
-                        label="Previous"
-                        icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
-                    />
+                    <Link to={`/questions/${previousQuestion}`}>
+                        <BottomNavigationAction
+                            label="Previous"
+                            icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
+                        />
+                    </Link>
                     <BottomNavigationAction
                         label={author}
                         icon={<FontAwesomeIcon icon={faUser} className={classes.icon} />}
                     />
-                    <BottomNavigationAction
-                        label="Next"
-                        icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
-                    />
+                    <Link to={`/questions/${nextQuestion}`}>
+                        <BottomNavigationAction
+                            label="Next"
+                            icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
+                        />
+                    </Link>
                 </BottomNavigation>
             </Fragment>
         )
