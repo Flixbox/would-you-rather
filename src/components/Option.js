@@ -113,6 +113,7 @@ class Option extends Component {
                 />
             </Grid>
         )
+        // TODO Add percentage
     }
 }
 

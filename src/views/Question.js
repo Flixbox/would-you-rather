@@ -37,6 +37,11 @@ const styles = {
     icon: {
         marginBottom: '5px',
     },
+    avatar: {
+        marginBottom: '5px',
+        height: '20px',
+        width: '20px',
+    },
 }
 
 /**
@@ -126,6 +131,7 @@ class Question extends Component {
 
     render() {
         const { classes, authedUser, match } = this.props
+        const { users } = this.props.users
         const { question } = match.params
         const { questions } = this.props.questions
 
@@ -183,7 +189,13 @@ class Question extends Component {
                     />
                     <BottomNavigationAction
                         label={author}
-                        icon={<FontAwesomeIcon icon={faUser} className={classes.icon} />}
+                        icon={
+                            <Avatar
+                                alt="avatar"
+                                src={users[author].avatarURL}
+                                className={classes.avatar}
+                            />
+                        }
                     />
                     <BottomNavigationAction
                         component={Link}
@@ -198,11 +210,12 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions, filter }) {
+function mapStateToProps({ authedUser, questions, filter, users }) {
     return {
         authedUser,
         questions,
         filter,
+        users,
     }
 }
 
