@@ -101,7 +101,7 @@ class Navigation extends Component {
                                     </MenuItem>
                                 ))}
                             </Menu>
-                            <Link to="/profile" replace className={classes.menuButton}>
+                            <Link to="/" replace className={classes.menuButton}>
                                 <Button color="inherit">{authedUser.id}</Button>
                                 <Avatar alt="avatar" src={avatarURL} className={classes.avatar} />
                             </Link>

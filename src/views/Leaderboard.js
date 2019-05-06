@@ -1,7 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 
-export default class Leaderboard extends Component {
+import {
+    Grid,
+    List,
+    ListItem,
+    ListItemText,
+    ListItemAvatar,
+    Avatar,
+    Typography,
+} from '@material-ui/core'
+
+class Leaderboard extends Component {
     render() {
-        return <div>Leaderboard</div>
+        const { users } = this.props.users
+        console.log(users)
+        return (
+            <Grid container>
+                <List>{Object.keys(users).map(id => this.renderListItem(users[id]))}</List>
+            </Grid>
+        )
+    }
+
+    renderListItem = user => {
+        return <ListItem alignItems="flex-start" key={user.id} />
     }
 }
+
+function mapStateToProps({ users }) {
+    return {
+        users,
+    }
+}
+
+export default connect(mapStateToProps)(Leaderboard)
