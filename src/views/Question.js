@@ -54,6 +54,11 @@ class Question extends Component {
         dispatch(handleQuestionAnswer({ authedUser, qid: question, answer: option }))
     }
 
+    /**
+     * Returns the question before this one or the current question if this is the first question in the stack.
+     *
+     * @memberof Question
+     */
     getPreviousQuestion = (question, questions) => {
         const questionArray = this.getQuestionArray(questions)
         const currentId = questionArray.indexOf(questions[question])
@@ -64,11 +69,21 @@ class Question extends Component {
         return questionArray[currentId - 1].id
     }
 
+    /**
+     * Returns the question after this one or the current question if this is the last question in the stack.
+     *
+     * @memberof Question
+     */
     getNextQuestion = (question, questions) => {
         const questionArray = this.getQuestionArray(questions)
         return question
     }
 
+    /**
+     * Sorts the given object by its timestamp and returns an array.
+     *
+     * @memberof Question
+     */
     getQuestionArray = questions => {
         let questionArray = []
         for (const question in questions) {
