@@ -36,11 +36,7 @@ export default (state = {}, action) => {
             }
         case SAVE_QUESTION_ANSWER:
             const { authedUser, qid, answer } = action
-            // Check if the user has already voted
-            if (state.questions[qid][answer].votes.includes(authedUser)) {
-                // this only checks this answer, not the other one
-                console.log('Test!')
-            }
+
             // This is basically stolen from the _DATA.js code
             const questions = {
                 ...state.questions,

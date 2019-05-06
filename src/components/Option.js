@@ -74,6 +74,7 @@ class Option extends Component {
             >
                 <Button
                     className={hasVoted ? classes.optionButtonVoted : classes.optionButton}
+                    disabled={hasVoted}
                     align="center"
                     onClick={() => handleQuestionAnswer(option)}
                 >
