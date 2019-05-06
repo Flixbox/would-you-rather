@@ -55,11 +55,21 @@ class Question extends Component {
     }
 
     getPreviousQuestion = (question, questions) => {
+        questions = this.getQuestionArray(questions)
         return question
     }
 
     getNextQuestion = (question, questions) => {
         return question
+    }
+
+    getQuestionArray = questions => {
+        var questionArray = []
+        for (var question in questions) {
+            questionArray.push(questions[question])
+        }
+        console.log(questionArray)
+        // TODO Sort
     }
 
     render() {
@@ -108,22 +118,22 @@ class Question extends Component {
                     />
                 </Grid>
                 <BottomNavigation showLabels>
-                    <Link to={`/questions/${previousQuestion}`}>
-                        <BottomNavigationAction
-                            label="Previous"
-                            icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
-                        />
-                    </Link>
+                    <BottomNavigationAction
+                        component={Link}
+                        to={`/questions/${previousQuestion}`}
+                        label="Previous"
+                        icon={<FontAwesomeIcon icon={faArrowLeft} className={classes.icon} />}
+                    />
                     <BottomNavigationAction
                         label={author}
                         icon={<FontAwesomeIcon icon={faUser} className={classes.icon} />}
                     />
-                    <Link to={`/questions/${nextQuestion}`}>
-                        <BottomNavigationAction
-                            label="Next"
-                            icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
-                        />
-                    </Link>
+                    <BottomNavigationAction
+                        component={Link}
+                        to={`/questions/${nextQuestion}`}
+                        label="Next"
+                        icon={<FontAwesomeIcon icon={faArrowRight} className={classes.icon} />}
+                    />
                 </BottomNavigation>
             </Fragment>
         )
