@@ -7,9 +7,16 @@ import {
 export default (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_QUESTIONS:
+            let questionArray = []
+            for (const question in action.questions) {
+                questionArray.push(action.questions[question])
+            }
+            questionArray.sort((a, b) => {
+                return a.timestamp - b.timestamp
+            })
             return {
                 ...state,
-                questions: action.questions,
+                questions: questionArray,
             }
         case RETRIEVE_NEW_QUESTION:
             for (const key in state.questions) {
