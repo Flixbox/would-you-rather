@@ -91,8 +91,12 @@ class Option extends Component {
 
     renderPieChart = () => {
         const { classes, authedUser, text, votes, option, opposite } = this.props
+
         const votesThisOption = votes.length
         const votesOppositeOption = opposite.votes.length
+        const totalVotes = votesOppositeOption + votesThisOption
+        const percent = Math.round((votesThisOption / totalVotes) * 100)
+
         return (
             <Grid item xs={12} className={classes.chartContainer} align="center">
                 <PieChart
@@ -109,8 +113,9 @@ class Option extends Component {
                     labelStyle={{
                         fill: theme.palette.primary.contrastText,
                     }}
-                    totalValue={votesOppositeOption + votesThisOption}
+                    totalValue={totalVotes}
                 />
+                <Typography variant="body1">{percent}%</Typography>
             </Grid>
         )
         // TODO Add percentage

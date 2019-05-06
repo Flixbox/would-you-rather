@@ -155,7 +155,6 @@ class Question extends Component {
         const previousQuestion = this.getPreviousQuestion(question, questions)
         const nextQuestion = this.getNextQuestion(question, questions)
 
-        // TODO Add avatar
         return (
             <Fragment>
                 <div className={classes.questionContainer}>
