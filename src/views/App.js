@@ -6,6 +6,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Navigation from '../components/Navigation'
 
+import Question from './Question'
 import CurrentQuestion from './CurrentQuestion'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
@@ -41,6 +42,7 @@ class App extends Component {
                             <Route exact path="/" component={CurrentQuestion} />
                             <Route path="/new" component={NewQuestion} />
                             <Route path="/leaderboard" component={Leaderboard} />
+                            <Route path="/questions/:question" component={Question} />
                         </Switch>
                     </Router>
                 ) : (

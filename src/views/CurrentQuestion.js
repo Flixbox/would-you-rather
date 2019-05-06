@@ -2,7 +2,11 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleRetrieveNewQuestion, handleQuestionAnswer } from '../actions/questions'
 
+import { Redirect } from 'react-router-dom'
+
 import Question from '../views/Question'
+
+import { Typography, Grid } from '@material-ui/core'
 
 /**
  * This helper view retrieves the current logged in user's question.
@@ -29,7 +33,15 @@ class CurrentQuestion extends Component {
     render() {
         const { currentQuestion } = this.props.questions
 
-        return <Question question={currentQuestion} />
+        if (!currentQuestion) {
+            return (
+                <Grid container justify="center" alignItems="center">
+                    <Typography variant="h1">Loading question...</Typography>
+                </Grid>
+            )
+        }
+
+        return <Redirect to={`questions/${currentQuestion}`} />
     }
 }
 

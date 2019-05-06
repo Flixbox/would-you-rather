@@ -59,7 +59,11 @@ class Question extends Component {
         if (!question) {
             return (
                 <Grid container justify="center" alignItems="center" className={classes.main}>
-                    <Typography>Loading question...</Typography>
+                    <Typography variant="h1">Loading question...</Typography>
+                    <Typography variant="body1">
+                        If this stays up long enough for you to read it, question {question}{' '}
+                        probably doesn't exist.
+                    </Typography>
                 </Grid>
             )
         }
