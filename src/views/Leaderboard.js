@@ -14,9 +14,10 @@ import {
 class Leaderboard extends Component {
     render() {
         const { users } = this.props.users
+        // TODO Sort users
         console.log(users)
         return (
-            <Grid container>
+            <Grid container justify="center">
                 <List>{Object.keys(users).map(id => this.renderListItem(users[id]))}</List>
             </Grid>
         )
@@ -26,10 +27,41 @@ class Leaderboard extends Component {
         return (
             <ListItem alignItems="flex-start" key={user.id}>
                 <ListItemAvatar>
-                    <Avatar alt={user.id} src={user.avatarURL} />
+                    <Avatar alt={user.name} src={user.avatarURL} />
                 </ListItemAvatar>
+                <ListItemText
+                    primary={user.name}
+                    secondary={
+                        <Fragment>
+                            <Typography component="span">
+                                {`${this.getAnsweredQuestions(user)} questions answered`}
+                            </Typography>
+                            <Typography component="span">
+                                {`${this.getAskedQuestions(user)} questions asked`}
+                            </Typography>
+                        </Fragment>
+                    }
+                />
             </ListItem>
         )
+    }
+
+    /**
+     * Counts how many questions this user has answered.
+     *
+     * @memberof Leaderboard
+     */
+    getAnsweredQuestions = user => {
+        return 2
+    }
+
+    /**
+     * Counts how many questions this user has asked.
+     *
+     * @memberof Leaderboard
+     */
+    getAskedQuestions = user => {
+        return 3
     }
 }
 
