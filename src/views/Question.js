@@ -77,14 +77,17 @@ class Question extends Component {
         const { question } = match.params
         const { questions } = this.props.questions
 
-        if (!question) {
+        if (!question || !questions[question]) {
             return (
                 <Grid container justify="center" alignItems="center" className={classes.main}>
                     <Typography variant="h1">Loading question...</Typography>
                     <Typography variant="body1">
-                        If this stays up long enough for you to read it, question {question}{' '}
+                        If this text stays up long enough for you to read it, question "{question}"
                         probably doesn't exist.
                     </Typography>
+                    <Link to="/">
+                        <Button>Take me back!</Button>
+                    </Link>
                 </Grid>
             )
         }
