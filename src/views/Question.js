@@ -55,21 +55,29 @@ class Question extends Component {
     }
 
     getPreviousQuestion = (question, questions) => {
-        questions = this.getQuestionArray(questions)
-        return question
+        const questionArray = this.getQuestionArray(questions)
+        const currentId = questionArray.indexOf(questions[question])
+        if (currentId <= 0) {
+            // Link to current question; TODO disable button instead
+            return questions[question].id
+        }
+        return questionArray[currentId - 1].id
     }
 
     getNextQuestion = (question, questions) => {
+        const questionArray = this.getQuestionArray(questions)
         return question
     }
 
     getQuestionArray = questions => {
-        var questionArray = []
-        for (var question in questions) {
+        let questionArray = []
+        for (const question in questions) {
             questionArray.push(questions[question])
         }
-        console.log(questionArray)
-        // TODO Sort
+        questionArray.sort((a, b) => {
+            return a.timestamp - b.timestamp
+        })
+        return questionArray
     }
 
     render() {
@@ -97,6 +105,7 @@ class Question extends Component {
         const previousQuestion = this.getPreviousQuestion(question, questions)
         const nextQuestion = this.getNextQuestion(question, questions)
 
+        // TODO Add avatar
         return (
             <Fragment>
                 <div className={classes.questionContainer}>
