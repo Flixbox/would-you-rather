@@ -6,6 +6,8 @@
 
 Would You Rather? is a game about choice. Log in, answer questions and make your own questions!
 
+![showcase](docs/showcase.mp4)
+
 ## A hint about the list functionality...
 
 This project does not contain the classic list of questions. Instead, the user can navigate through the questions one by one.
