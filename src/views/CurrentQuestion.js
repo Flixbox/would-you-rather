@@ -9,6 +9,7 @@ import { Typography, Grid } from '@material-ui/core'
 /**
  * This helper view retrieves the current logged in user's question.
  * This question should be the first unanswered one.
+ * It's basically just a redirect.
  *
  * @class CurrentQuestion
  * @extends {Component}
