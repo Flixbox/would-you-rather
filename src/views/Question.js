@@ -104,11 +104,9 @@ class Question extends Component {
             ]
 
             switch (filter) {
-                case 1:
-                    // Unanswered only
-                    if (!votes.includes(authedUser.id)) {
-                        questionArray.push(questions[question])
-                    }
+                case 0:
+                    // No filter
+                    questionArray.push(questions[question])
                     break
                 case 2:
                     // Answered only
@@ -117,8 +115,10 @@ class Question extends Component {
                     }
                     break
                 default:
-                    // No filter
-                    questionArray.push(questions[question])
+                    // Unanswered only
+                    if (!votes.includes(authedUser.id)) {
+                        questionArray.push(questions[question])
+                    }
                     break
             }
         }

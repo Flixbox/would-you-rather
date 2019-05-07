@@ -68,7 +68,11 @@ class Navigation extends Component {
     handleClose = id => {
         const { dispatch } = this.props
         this.setState({ anchorEl: null })
-        dispatch(handleFilterChange(id))
+        // The parameter is an object if the user doesn't click an option.
+        if (!(typeof id === 'object')) {
+            dispatch(handleFilterChange(id))
+        }
+
         // Should we redirect after the filter has changed?
         // I'd say no, since that's not the expected behaviour and the Navbar is global,
         // so the user might change the filter in the leaderboard
