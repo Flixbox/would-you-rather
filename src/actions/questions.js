@@ -1,4 +1,4 @@
-import { saveQuestionAnswer, formatNewQuestion, saveQuestion } from '../helpers/api'
+import { saveQuestionAnswer, saveQuestion } from '../helpers/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RETRIEVE_NEW_QUESTION = 'RETRIEVE_NEW_QUESTION'
