@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleNewQuestion } from '../actions/questions'
 
-import { Grid, TextField, Typography } from '@material-ui/core'
+import { Grid, TextField, Typography, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
@@ -27,8 +27,8 @@ class NewQuestion extends Component {
 
     submit = () => {
         const { optionOne, optionTwo } = this.state
-        const { authedUser } = this.props
-        this.props.dispatch(handleNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
+        const { authedUser, dispatch } = this.props
+        dispatch(handleNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
     }
 
     render() {
@@ -64,6 +64,9 @@ class NewQuestion extends Component {
                         onChange={e => this.updateOption('optionTwo', e.target.value)}
                         value={this.state.optionTwo}
                     />
+                </Grid>
+                <Grid item xs={10}>
+                    <Button onClick={e => this.submit()}>Submit</Button>
                 </Grid>
             </Grid>
         )
