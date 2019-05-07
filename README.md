@@ -6,7 +6,7 @@
 
 Would You Rather? is a game about choice. Log in, answer questions and make your own questions!
 
-![showcase](docs/showcase.mp4)
+![showcase](docs/showcase-reduced.gif)
 
 ## A hint about the list functionality...
 
