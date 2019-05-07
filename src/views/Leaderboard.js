@@ -74,11 +74,7 @@ class Leaderboard extends Component {
      * @memberof Leaderboard
      */
     getAnsweredQuestions = user => {
-        let sum = 0
-        for (const answer in user.answers) {
-            sum++
-        }
-        return sum
+        return Object.keys(user.answers).length
     }
 
     /**
@@ -87,11 +83,7 @@ class Leaderboard extends Component {
      * @memberof Leaderboard
      */
     getAskedQuestions = user => {
-        let sum = 0
-        for (const question in user.questions) {
-            sum++
-        }
-        return sum
+        return user.questions.length
     }
 }
 
