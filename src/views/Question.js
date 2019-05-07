@@ -108,7 +108,6 @@ class Question extends Component {
                     // Unanswered only
                     if (!votes.includes(authedUser.id)) {
                         questionArray.push(questions[question])
-                        console.log(`${authedUser.id} is not in votes!`, votes)
                     }
                     break
                 case 2:

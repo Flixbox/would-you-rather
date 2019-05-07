@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { withRouter } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 import { handleNewQuestion } from '../actions/questions'
 
@@ -29,6 +31,8 @@ class NewQuestion extends Component {
         const { optionOne, optionTwo } = this.state
         const { authedUser, dispatch } = this.props
         dispatch(handleNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
+        // Redirect to main page
+        this.props.history.push('/')
     }
 
     render() {
@@ -79,6 +83,8 @@ function mapStateToProps({ authedUser }) {
     }
 }
 
-const StyledNewQuestion = withStyles(styles)(NewQuestion)
+const withRouterNewQuestion = withRouter(NewQuestion)
+
+const StyledNewQuestion = withStyles(styles)(withRouterNewQuestion)
 
 export default connect(mapStateToProps)(StyledNewQuestion)
