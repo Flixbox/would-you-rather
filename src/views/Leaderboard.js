@@ -46,6 +46,8 @@ class Leaderboard extends Component {
         )
     }
 
+    getSortedUsers = users => {}
+
     /**
      * Counts how many questions this user has answered.
      *

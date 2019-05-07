@@ -1,5 +1,8 @@
 # Would You Rather?
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![GitHub last commit](https://img.shields.io/github/last-commit/Flixbox/would-you-rather.svg)
+
 Would You Rather? is a game about choice. Log in, answer questions and make your own questions!
 
 ## A hint about the list functionality...
