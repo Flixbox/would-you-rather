@@ -15,18 +15,42 @@ const styles = {
     },
 }
 
+/**
+ * This form allows the user to create a new question.
+ * Workflow:
+ * - User creates question
+ * - User submits question
+ * - User is redirected to CurrentQuestion
+ * - Question is saved in the backend
+ * - Question is saved in the redux store
+ *
+ * @class NewQuestion
+ * @extends {Component}
+ */
 class NewQuestion extends Component {
     state = {
         optionOne: '',
         optionTwo: '',
     }
 
+    /**
+     * Triggered when the user types something.
+     * This updates the state and in turn updates the value of the given input field.
+     *
+     * @memberof NewQuestion
+     */
     updateOption = (option, text) => {
         this.setState(prevState => {
             return { ...prevState, [option]: text }
         })
     }
 
+    /**
+     * Triggered when the "Submit" button is clicked.
+     * The workflow is noted in the class description.
+     *
+     * @memberof NewQuestion
+     */
     submit = () => {
         const { optionOne, optionTwo } = this.state
         const { authedUser, dispatch } = this.props
