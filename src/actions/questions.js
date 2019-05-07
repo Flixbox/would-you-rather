@@ -46,10 +46,12 @@ export function handleQuestionAnswer({ authedUser, qid, answer }) {
 
 export function handleNewQuestion({ optionOne, optionTwo, author }) {
     return dispatch => {
-        dispatch(receiveQuestions(formatNewQuestion({ optionOne, optionTwo, author })))
-
-        return saveQuestion({ optionOne, optionTwo, author }).catch(e => {
-            console.warn('Error in handleNewQuestion: ', e)
-        })
+        return saveQuestion({ optionOne, optionTwo, author })
+            .catch(e => {
+                console.warn('Error in handleNewQuestion: ', e)
+            })
+            .then(formattedQuestion => {
+                dispatch(receiveQuestions({ [formattedQuestion.id]: { ...formattedQuestion } }))
+            })
     }
 }
