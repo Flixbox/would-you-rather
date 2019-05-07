@@ -106,7 +106,7 @@ class Navigation extends Component {
                                 onClick={this.handleClick}
                                 className={classes.menuButton}
                             >
-                                {this.filterTexts[filter] || 'Filter'}
+                                {this.filterTexts[filter] || this.filterTexts[1]}
                             </Button>
                             <Menu
                                 id="filter-menu"
