@@ -64,7 +64,7 @@ class Navigation extends Component {
         const { classes, authedUser, users, filter } = this.props
         const { anchorEl } = this.state
 
-        const avatarURL = users.users[authedUser.id].avatarURL
+        const avatarURL = users[authedUser.id].avatarURL
 
         return (
             <div>

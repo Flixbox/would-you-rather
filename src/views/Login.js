@@ -33,8 +33,7 @@ class Login extends Component {
     }
 
     render() {
-        const { users } = this.props.users
-        const { classes } = this.props
+        const { users, classes } = this.props
 
         if (!users) {
             return (

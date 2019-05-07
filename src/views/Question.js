@@ -130,8 +130,7 @@ class Question extends Component {
     }
 
     render() {
-        const { classes, authedUser, match } = this.props
-        const { users } = this.props.users
+        const { classes, authedUser, match, users } = this.props
         const { question } = match.params
         const { questions } = this.props.questions
 

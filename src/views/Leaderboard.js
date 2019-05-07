@@ -13,9 +13,8 @@ import {
 
 class Leaderboard extends Component {
     render() {
-        const { users } = this.props.users
+        const { users } = this.props
         const sortedUsers = this.getSortedUsers(users)
-        console.log(sortedUsers)
         return (
             <Grid container justify="center">
                 <List>{sortedUsers.map(user => this.renderListItem(user))}</List>
