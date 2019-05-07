@@ -36,6 +36,13 @@ const styles = {
     },
 }
 
+/**
+ * This component represents a half of the currently displayed question.
+ * This half contains an option text and, if answered, shows some data.
+ *
+ * @class Option
+ * @extends {Component}
+ */
 class Option extends Component {
     render() {
         const {
@@ -76,6 +83,11 @@ class Option extends Component {
         )
     }
 
+    /**
+     * This function examines the question's data and displays it in a nice way.
+     *
+     * @memberof Option
+     */
     renderPieChart = () => {
         const { classes, votes, opposite } = this.props
 
