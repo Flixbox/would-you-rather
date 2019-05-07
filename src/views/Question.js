@@ -185,6 +185,8 @@ class Question extends Component {
                         disabled={previousQuestion === question}
                     />
                     <BottomNavigationAction
+                        component={Link}
+                        to={`/leaderboard`}
                         label={author}
                         icon={
                             <Avatar
