@@ -11,6 +11,13 @@ import {
     Typography,
 } from '@material-ui/core'
 
+/**
+ * This view simply displays the user's stats.
+ * All users are ordered by the sum of their questions and answers.
+ *
+ * @class Leaderboard
+ * @extends {Component}
+ */
 class Leaderboard extends Component {
     render() {
         const { users } = this.props
@@ -22,6 +29,11 @@ class Leaderboard extends Component {
         )
     }
 
+    /**
+     * This function renders the stats of a single user.
+     *
+     * @memberof Leaderboard
+     */
     renderListItem = user => {
         return (
             <ListItem alignItems="flex-start" key={user.id}>
