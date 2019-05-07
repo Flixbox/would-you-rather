@@ -33,6 +33,15 @@ export function setQuestionAnswer({ authedUser, qid, answer }) {
     }
 }
 
+/**
+ * Executed when the user submits a new answer that should be saved.
+ * The data is saved in the store and in the backend.
+ *
+ * @export
+ * @param {Object} { authedUser, qid, answer } The currently logged in user,
+ *                  the question's id and either "optionOne" or "optionTwo".
+ * @returns Undefined
+ */
 export function handleQuestionAnswer({ authedUser, qid, answer }) {
     return dispatch => {
         dispatch(setQuestionAnswer({ authedUser: authedUser.id, qid, answer }))
@@ -43,6 +52,14 @@ export function handleQuestionAnswer({ authedUser, qid, answer }) {
     }
 }
 
+/**
+ * Executed when the user submits a new question that should be saved.
+ * The data is saved in the store and in the backend.
+ *
+ * @export
+ * @param {Object} { optionOne, optionTwo, author } The question's data.
+ * @returns Undefined
+ */
 export function handleNewQuestion({ optionOne, optionTwo, author }) {
     return dispatch => {
         return saveQuestion({ optionOneText: optionOne, optionTwoText: optionTwo, author })
