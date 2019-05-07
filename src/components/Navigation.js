@@ -40,16 +40,31 @@ class Navigation extends Component {
 
     filterTexts = ['All questions', 'Unanswered', 'Answered']
 
+    /**
+     * This function is triggered when the logout button is clicked.
+     *
+     * @memberof Navigation
+     */
     handleLogoutClick = () => {
         const { dispatch } = this.props
 
         dispatch(handleLogout())
     }
 
+    /**
+     * This function is triggered when the filter button is clicked.
+     *
+     * @memberof Navigation
+     */
     handleClick = event => {
         this.setState({ anchorEl: event.currentTarget })
     }
 
+    /**
+     * This function is triggered when the filter button is closed.
+     *
+     * @memberof Navigation
+     */
     handleClose = id => {
         const { dispatch } = this.props
         this.setState({ anchorEl: null })
