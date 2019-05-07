@@ -5232,6 +5232,13 @@ is-in-browser@^1.0.2, is-in-browser@^1.1.3:
   resolved "https://registry.yarnpkg.com/is-in-browser/-/is-in-browser-1.1.3.tgz#56ff4db683a078c6082eb95dad7dc62e1d04f835"
   integrity sha1-Vv9NtoOgeMYILrldrX3GLh0E+DU=
 
+is-npm-not-yarn@^2.0.3:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/is-npm-not-yarn/-/is-npm-not-yarn-2.0.5.tgz#9224ed134ec7e0bcc4548ec7578dea35363d3abb"
+  integrity sha512-FoFItIdLSj+AY6cNwZsnH03O8KZKRhNjk7obWVRdA5sQp5JemubYGfJp/Aq/EXYdPpc8J4QqgXhg4CazwH+9uw==
+  dependencies:
+    slash "^1.0.0"
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
@@ -10068,6 +10075,14 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-yarn@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/use-yarn/-/use-yarn-2.2.0.tgz#355da1edf17acc56d7b243fcaa817bd92fd0be4a"
+  integrity sha1-NV2h7fF6zFbXskP8qoF72S/Qvko=
+  dependencies:
+    is-npm-not-yarn "^2.0.3"
+    minimist "^1.2.0"
 
 use@^3.1.0:
   version "3.1.1"
