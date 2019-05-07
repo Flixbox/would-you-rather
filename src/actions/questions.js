@@ -46,7 +46,7 @@ export function handleQuestionAnswer({ authedUser, qid, answer }) {
 
 export function handleNewQuestion({ optionOne, optionTwo, author }) {
     return dispatch => {
-        return saveQuestion({ optionOne, optionTwo, author })
+        return saveQuestion({ optionOneText: optionOne, optionTwoText: optionTwo, author })
             .catch(e => {
                 console.warn('Error in handleNewQuestion: ', e)
             })
