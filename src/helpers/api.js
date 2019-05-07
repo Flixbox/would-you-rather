@@ -1,4 +1,10 @@
-import { _getUsers, _getQuestions, _saveQuestion, _saveQuestionAnswer } from './_DATA.js'
+import {
+    _getUsers,
+    _getQuestions,
+    _saveQuestion,
+    _saveQuestionAnswer,
+    formatQuestion,
+} from './_DATA.js'
 
 export function getInitialData() {
     return Promise.all([_getUsers(), _getQuestions()]).then(([users, questions]) => ({
@@ -13,4 +19,8 @@ export function saveQuestion(question) {
 
 export function saveQuestionAnswer({ authedUser, qid, answer }) {
     return _saveQuestionAnswer({ authedUser, qid, answer })
+}
+
+export function formatNewQuestion(question) {
+    return formatQuestion(question)
 }

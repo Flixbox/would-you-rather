@@ -5,6 +5,7 @@ export const RETRIEVE_NEW_QUESTION = 'RETRIEVE_NEW_QUESTION'
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
 
 export function receiveQuestions(questions) {
+    console.log(questions)
     return {
         type: RECEIVE_QUESTIONS,
         questions,

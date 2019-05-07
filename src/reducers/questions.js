@@ -9,7 +9,10 @@ export default (state = {}, action) => {
         case RECEIVE_QUESTIONS:
             return {
                 ...state,
-                questions: action.questions,
+                questions: {
+                    ...state.questions,
+                    ...action.questions,
+                },
             }
         case RETRIEVE_NEW_QUESTION:
             for (const key in state.questions) {

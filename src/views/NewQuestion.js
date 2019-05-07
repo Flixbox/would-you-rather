@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import { receiveQuestions } from '../actions/questions'
+
 import { Grid, TextField, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+
+import { formatNewQuestion } from '../helpers/api'
 
 const styles = {
     main: {
@@ -20,6 +25,14 @@ class NewQuestion extends Component {
         this.setState(prevState => {
             return { ...prevState, [option]: text }
         })
+    }
+
+    submit = () => {
+        const { optionOne, optionTwo } = this.state
+        const { authedUser } = this.props
+        this.props.dispatch(
+            receiveQuestions(formatNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
+        )
     }
 
     render() {
@@ -61,4 +74,12 @@ class NewQuestion extends Component {
     }
 }
 
-export default withStyles(styles)(NewQuestion)
+function mapStateToProps({ authedUser }) {
+    return {
+        authedUser,
+    }
+}
+
+const StyledNewQuestion = withStyles(styles)(NewQuestion)
+
+export default connect(mapStateToProps)(StyledNewQuestion)
