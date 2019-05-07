@@ -1,4 +1,4 @@
-import { saveQuestionAnswer } from '../helpers/api'
+import { saveQuestionAnswer, formatNewQuestion, saveQuestion } from '../helpers/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RETRIEVE_NEW_QUESTION = 'RETRIEVE_NEW_QUESTION'
@@ -40,6 +40,16 @@ export function handleQuestionAnswer({ authedUser, qid, answer }) {
 
         return saveQuestionAnswer({ authedUser: authedUser.id, qid, answer }).catch(e => {
             console.warn('Error in handleQuestionAnswer: ', e)
+        })
+    }
+}
+
+export function handleNewQuestion({ optionOne, optionTwo, author }) {
+    return dispatch => {
+        dispatch(receiveQuestions(formatNewQuestion({ optionOne, optionTwo, author })))
+
+        return saveQuestion({ optionOne, optionTwo, author }).catch(e => {
+            console.warn('Error in handleNewQuestion: ', e)
         })
     }
 }

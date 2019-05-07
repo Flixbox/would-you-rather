@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { receiveQuestions } from '../actions/questions'
+import { handleNewQuestion } from '../actions/questions'
 
 import { Grid, TextField, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-
-import { formatNewQuestion } from '../helpers/api'
 
 const styles = {
     main: {
@@ -30,9 +28,7 @@ class NewQuestion extends Component {
     submit = () => {
         const { optionOne, optionTwo } = this.state
         const { authedUser } = this.props
-        this.props.dispatch(
-            receiveQuestions(formatNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
-        )
+        this.props.dispatch(handleNewQuestion({ optionOne, optionTwo, author: authedUser.id }))
     }
 
     render() {
