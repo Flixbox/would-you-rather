@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Button, Toolbar, AppBar, Avatar, Menu, MenuItem } from '@material-ui/core'
+import { Button, Toolbar, AppBar, Avatar, Menu, MenuItem, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -24,6 +24,10 @@ const styles = theme => ({
     },
     grow: {
         flexGrow: 1,
+    },
+    hint: {
+        maxWidth: '100%',
+        whiteSpace: 'pre-wrap',
     },
 })
 
@@ -119,6 +123,17 @@ class Navigation extends Component {
                                         {text}
                                     </MenuItem>
                                 ))}
+                                <MenuItem disabled>
+                                    <Typography
+                                        className={classes.hint}
+                                        variant="body1"
+                                        gutterBottom
+                                    >
+                                        Use this menu to change your navigation options. Note that
+                                        the currently selected question is not affected, only the
+                                        bottom navigation.
+                                    </Typography>
+                                </MenuItem>
                             </Menu>
                             <Link to="/" replace className={classes.menuButton}>
                                 <Button color="inherit">{authedUser.id}</Button>
