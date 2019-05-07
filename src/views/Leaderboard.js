@@ -14,11 +14,11 @@ import {
 class Leaderboard extends Component {
     render() {
         const { users } = this.props.users
-        // TODO Sort users
-        console.log(users)
+        const sortedUsers = this.getSortedUsers(users)
+        console.log(sortedUsers)
         return (
             <Grid container justify="center">
-                <List>{Object.keys(users).map(id => this.renderListItem(users[id]))}</List>
+                <List>{sortedUsers.map(user => this.renderListItem(user))}</List>
             </Grid>
         )
     }
@@ -46,7 +46,28 @@ class Leaderboard extends Component {
         )
     }
 
-    getSortedUsers = users => {}
+    /**
+     * Sorts the user array by the sum of their questions and answers.
+     *
+     * @memberof Leaderboard
+     */
+    getSortedUsers = users => {
+        let sortedUsers = []
+        Object.keys(users).map(id => sortedUsers.push(users[id]))
+        return sortedUsers.sort((a, b) => this.getUserScore(b) - this.getUserScore(a))
+    }
+
+    /**
+     * Adds up the user's questions and answers.
+     *
+     * @memberof Leaderboard
+     */
+    getUserScore = user => {
+        let sum = 0
+        sum += this.getAskedQuestions(user)
+        sum += this.getAnsweredQuestions(user)
+        return sum
+    }
 
     /**
      * Counts how many questions this user has answered.
@@ -54,7 +75,11 @@ class Leaderboard extends Component {
      * @memberof Leaderboard
      */
     getAnsweredQuestions = user => {
-        return 2
+        let sum = 0
+        for (const answer in user.answers) {
+            sum++
+        }
+        return sum
     }
 
     /**
@@ -63,7 +88,11 @@ class Leaderboard extends Component {
      * @memberof Leaderboard
      */
     getAskedQuestions = user => {
-        return 3
+        let sum = 0
+        for (const question in user.questions) {
+            sum++
+        }
+        return sum
     }
 }
 
