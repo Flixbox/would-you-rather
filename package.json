@@ -43,7 +43,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "pretty-quick --staged",
+            "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx)\"",
             "post-commit": "yarn run deploy"
         }
     },
@@ -52,7 +52,6 @@
         "bracketSpacing": true,
         "jsxBracketSameLine": false,
         "jsxSingleQuote": false,
-        "parser": "babel",
         "printWidth": 100,
         "proseWrap": "preserve",
         "requirePragma": false,
@@ -60,32 +59,6 @@
         "useTabs": false,
         "singleQuote": true,
         "trailingComma": "es5",
-        "semi": false,
-        "overrides": [
-            {
-                "files": "*.md",
-                "options": {
-                    "parser": "markdown"
-                }
-            },
-            {
-                "files": "*.json",
-                "options": {
-                    "parser": "json"
-                }
-            },
-            {
-                "files": "*.scss",
-                "options": {
-                    "parser": "scss"
-                }
-            },
-            {
-                "files": "*.html",
-                "options": {
-                    "parser": "html"
-                }
-            }
-        ]
+        "semi": false
     }
 }
