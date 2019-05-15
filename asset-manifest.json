@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/would-you-rather/static/js/main.807fb842.chunk.js",
-    "main.js.map": "/would-you-rather/static/js/main.807fb842.chunk.js.map",
+    "main.js": "/would-you-rather/static/js/main.42d6d05b.chunk.js",
+    "main.js.map": "/would-you-rather/static/js/main.42d6d05b.chunk.js.map",
     "runtime~main.js": "/would-you-rather/static/js/runtime~main.2bbe9c67.js",
     "runtime~main.js.map": "/would-you-rather/static/js/runtime~main.2bbe9c67.js.map",
     "static/js/2.ed9d5228.chunk.js": "/would-you-rather/static/js/2.ed9d5228.chunk.js",
     "static/js/2.ed9d5228.chunk.js.map": "/would-you-rather/static/js/2.ed9d5228.chunk.js.map",
     "index.html": "/would-you-rather/index.html",
-    "precache-manifest.8389fed2d3296f66916fa5173420bd2e.js": "/would-you-rather/precache-manifest.8389fed2d3296f66916fa5173420bd2e.js",
+    "precache-manifest.ba79d34e32d7215efaf0679163f4e5b8.js": "/would-you-rather/precache-manifest.ba79d34e32d7215efaf0679163f4e5b8.js",
     "service-worker.js": "/would-you-rather/service-worker.js"
   }
 }
