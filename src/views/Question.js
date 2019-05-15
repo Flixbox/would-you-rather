@@ -123,7 +123,7 @@ class Question extends Component {
             }
         }
         questionArray.sort((a, b) => {
-            return a.timestamp - b.timestamp
+            return b.timestamp - a.timestamp
         })
         return questionArray
     }
