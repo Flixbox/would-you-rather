@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Button, Toolbar, AppBar, Avatar, Menu, MenuItem, Typography } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { handleLogout } from '../actions/authedUser'
@@ -70,7 +70,7 @@ class Navigation extends Component {
      * @memberof Navigation
      */
     handleClose = id => {
-        const { dispatch } = this.props
+        const { dispatch, history } = this.props
         this.setState({ anchorEl: null })
         // The parameter is an object if the user doesn't click an option.
         if (!(typeof id === 'object')) {
@@ -81,6 +81,10 @@ class Navigation extends Component {
         // I'd say no, since that's not the expected behaviour and the Navbar is global,
         // so the user might change the filter in the leaderboard
         // and suddenly be redirected to the question page.
+
+        // However, since the project wasn't accepted with this approach,
+        // Here's a simple redirect.
+        history.push('/')
     }
 
     render() {
@@ -160,4 +164,4 @@ function mapStateToProps({ users, authedUser, filter }) {
 
 const StyledNavigation = withStyles(styles)(Navigation)
 
-export default connect(mapStateToProps)(StyledNavigation)
+export default withRouter(connect(mapStateToProps)(StyledNavigation))
