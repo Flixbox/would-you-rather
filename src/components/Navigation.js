@@ -70,11 +70,11 @@ class Navigation extends Component {
      * @memberof Navigation
      */
     handleClose = id => {
-        const { dispatch, history } = this.props
+        const { dispatch, history, questions, authedUser } = this.props
         this.setState({ anchorEl: null })
         // The parameter is an object if the user doesn't click an option.
         if (!(typeof id === 'object')) {
-            dispatch(handleFilterChange(id))
+            dispatch(handleFilterChange({ id, questions, authedUser }))
         }
 
         // Should we redirect after the filter has changed?
@@ -154,11 +154,12 @@ class Navigation extends Component {
     }
 }
 
-function mapStateToProps({ users, authedUser, filter }) {
+function mapStateToProps({ users, authedUser, filter, questions }) {
     return {
         users,
         authedUser,
         filter,
+        questions,
     }
 }
 

@@ -27,9 +27,9 @@ const styles = {
  */
 class Login extends Component {
     handleLoginClick = id => {
-        const { dispatch } = this.props
+        const { dispatch, questions } = this.props
 
-        dispatch(handleLogin(id))
+        dispatch(handleLogin(id, questions.questions))
     }
 
     render() {
@@ -70,9 +70,10 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, questions }) {
     return {
         users,
+        questions,
     }
 }
 

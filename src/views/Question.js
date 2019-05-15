@@ -64,9 +64,9 @@ class Question extends Component {
      *
      * @memberof Question
      */
-    getPreviousQuestion = (question, questions) => {
-        const questionArray = this.getQuestionArray(questions)
-        const currentId = questionArray.indexOf(questions[question])
+    getPreviousQuestion = (question, questions, filteredQuestions) => {
+        const questionArray = filteredQuestions
+        const currentId = questionArray.indexOf(filteredQuestions[question])
         if (currentId <= 0) {
             // Link to current question
             return questions[question].id
@@ -79,8 +79,8 @@ class Question extends Component {
      *
      * @memberof Question
      */
-    getNextQuestion = (question, questions) => {
-        const questionArray = this.getQuestionArray(questions)
+    getNextQuestion = (question, questions, filteredQuestions) => {
+        const questionArray = filteredQuestions
         const currentId = questionArray.indexOf(questions[question])
         if (currentId >= questionArray.length - 1) {
             // Link to current question
@@ -89,51 +89,12 @@ class Question extends Component {
         return questionArray[currentId + 1].id
     }
 
-    /**
-     * Sorts the given object by its timestamp and returns an array.
-     *
-     * @memberof Question
-     */
-    getQuestionArray = questions => {
-        const { filter, authedUser } = this.props
-        let questionArray = []
-        for (const question in questions) {
-            const votes = [
-                ...questions[question].optionOne.votes,
-                ...questions[question].optionTwo.votes,
-            ]
-
-            switch (filter) {
-                case 0:
-                    // No filter
-                    questionArray.push(questions[question])
-                    break
-                case 2:
-                    // Answered only
-                    if (votes.includes(authedUser.id)) {
-                        questionArray.push(questions[question])
-                    }
-                    break
-                default:
-                    // Unanswered only
-                    if (!votes.includes(authedUser.id)) {
-                        questionArray.push(questions[question])
-                    }
-                    break
-            }
-        }
-        questionArray.sort((a, b) => {
-            return b.timestamp - a.timestamp
-        })
-        return questionArray
-    }
-
     render() {
-        const { classes, authedUser, match, users } = this.props
+        const { classes, authedUser, match, users, filteredQuestions } = this.props
         const { question } = match.params
         const { questions } = this.props.questions
 
-        if (!question || !questions[question]) {
+        if (!question || !questions || !questions[question] || !filteredQuestions) {
             return (
                 <Grid container justify="center" alignItems="center" className={classes.main}>
                     <Typography variant="h1">Loading question...</Typography>
@@ -209,10 +170,11 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, questions, filter, users }) {
+function mapStateToProps({ authedUser, questions, filteredQuestions, filter, users }) {
     return {
         authedUser,
         questions,
+        filteredQuestions,
         filter,
         users,
     }

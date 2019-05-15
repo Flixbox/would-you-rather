@@ -1,3 +1,5 @@
+import { handleFilterChange } from './filter'
+
 export const SET_AUTHED_USER = 'SET_AUTHED_USER'
 
 export function setAuthedUser(id = null) {
@@ -7,9 +9,10 @@ export function setAuthedUser(id = null) {
     }
 }
 
-export function handleLogin(id) {
+export function handleLogin(id, questions) {
     return dispatch => {
         dispatch(setAuthedUser(id))
+        dispatch(handleFilterChange({ questions, authedUser: id }))
     }
 }
 
