@@ -65,13 +65,13 @@ class Question extends Component {
      * @memberof Question
      */
     getPreviousQuestion = (question, questions, filteredQuestions) => {
-        const questionArray = filteredQuestions
-        const currentId = questionArray.indexOf(filteredQuestions[question])
+        if (!filteredQuestions) return null
+        const currentId = filteredQuestions.indexOf(filteredQuestions[question])
         if (currentId <= 0) {
             // Link to current question
             return questions[question].id
         }
-        return questionArray[currentId - 1].id
+        return filteredQuestions[currentId - 1].id
     }
 
     /**
@@ -80,13 +80,13 @@ class Question extends Component {
      * @memberof Question
      */
     getNextQuestion = (question, questions, filteredQuestions) => {
-        const questionArray = filteredQuestions
-        const currentId = questionArray.indexOf(questions[question])
-        if (currentId >= questionArray.length - 1) {
+        if (!filteredQuestions) return null
+        const currentId = filteredQuestions.indexOf(questions[question])
+        if (currentId >= filteredQuestions.length - 1) {
             // Link to current question
             return questions[question].id
         }
-        return questionArray[currentId + 1].id
+        return filteredQuestions[currentId + 1].id
     }
 
     render() {
