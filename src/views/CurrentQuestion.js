@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleRetrieveNewQuestion } from '../actions/questions'
 
 import { Redirect } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ import { Typography, Grid } from '@material-ui/core'
 
 /**
  * This helper view retrieves the current logged in user's question.
- * This question should be the first unanswered one.
+ * This question should be the first unanswered one or a different one depending on the filter.
  * It's basically just a redirect.
  *
  * @class CurrentQuestion

@@ -4,6 +4,7 @@ export default (state = {}, action) => {
     switch (action.type) {
         case RETRIEVE_FILTERED_QUESTIONS: {
             const { questions, filter, authedUser } = action
+            debugger
             let sortedQuestions = []
             for (const question in questions) {
                 const votes = [
@@ -18,13 +19,13 @@ export default (state = {}, action) => {
                         break
                     case 2:
                         // Answered only
-                        if (votes.includes(authedUser.id)) {
+                        if (votes.includes(authedUser)) {
                             sortedQuestions.push(questions[question].id)
                         }
                         break
                     default:
                         // Unanswered only
-                        if (!votes.includes(authedUser.id)) {
+                        if (!votes.includes(authedUser)) {
                             sortedQuestions.push(questions[question].id)
                         }
                         break

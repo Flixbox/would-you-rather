@@ -75,7 +75,7 @@ class Navigation extends Component {
         this.setState({ anchorEl: null })
         // The parameter is an object if the user doesn't click an option.
         if (!(typeof id === 'object')) {
-            dispatch(handleFilterChange({ id, questions, authedUser }))
+            dispatch(handleFilterChange({ id, questions, authedUser: authedUser.id }))
         }
 
         // Should we redirect after the filter has changed?
