@@ -3,7 +3,6 @@ import { saveQuestionAnswer, saveQuestion } from '../helpers/api'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RETRIEVE_NEW_QUESTION = 'RETRIEVE_NEW_QUESTION'
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
-export const RETRIEVE_FILTERED_QUESTIONS = 'RETRIEVE_FILTERED_QUESTIONS'
 
 export function receiveQuestions(questions) {
     return {
@@ -25,20 +24,6 @@ export function handleRetrieveNewQuestion(authedUser) {
     }
 }
 
-export function retrieveFilteredQuestions(questions, filter, authedUser) {
-    return {
-        type: RETRIEVE_FILTERED_QUESTIONS,
-        questions,
-        filter,
-        authedUser,
-    }
-}
-
-export function handleRetrieveFilteredQuestions(questions, filter, authedUser) {
-    return dispatch => {
-        dispatch(retrieveFilteredQuestions(questions, filter, authedUser))
-    }
-}
 export function setQuestionAnswer({ authedUser, qid, answer }) {
     return {
         type: SAVE_QUESTION_ANSWER,

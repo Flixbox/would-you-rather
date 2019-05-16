@@ -1,4 +1,4 @@
-import { handleRetrieveFilteredQuestions } from './questions'
+import { handleRetrieveFilteredQuestions } from './filteredQuestions'
 
 export const SET_FILTER = 'SET_FILTER'
 
