@@ -6,6 +6,7 @@ export default (state = {}, action) => {
             const { questions, filter, authedUser } = action
             let sortedQuestions = []
             for (const question in questions) {
+                debugger
                 const votes = [
                     ...questions[question].optionOne.votes,
                     ...questions[question].optionTwo.votes,

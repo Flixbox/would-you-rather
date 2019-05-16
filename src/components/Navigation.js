@@ -70,7 +70,8 @@ class Navigation extends Component {
      * @memberof Navigation
      */
     handleClose = id => {
-        const { dispatch, history, questions, authedUser } = this.props
+        const { dispatch, history, authedUser } = this.props
+        const { questions } = this.props.questions
         this.setState({ anchorEl: null })
         // The parameter is an object if the user doesn't click an option.
         if (!(typeof id === 'object')) {
