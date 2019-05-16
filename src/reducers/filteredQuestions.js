@@ -6,7 +6,6 @@ export default (state = {}, action) => {
             const { questions, filter, authedUser } = action
             let sortedQuestions = []
             for (const question in questions) {
-                debugger
                 const votes = [
                     ...questions[question].optionOne.votes,
                     ...questions[question].optionTwo.votes,
@@ -15,18 +14,18 @@ export default (state = {}, action) => {
                 switch (filter) {
                     case 0:
                         // No filter
-                        sortedQuestions.push(questions[question])
+                        sortedQuestions.push(questions[question].id)
                         break
                     case 2:
                         // Answered only
                         if (votes.includes(authedUser.id)) {
-                            sortedQuestions.push(questions[question])
+                            sortedQuestions.push(questions[question].id)
                         }
                         break
                     default:
                         // Unanswered only
                         if (!votes.includes(authedUser.id)) {
-                            sortedQuestions.push(questions[question])
+                            sortedQuestions.push(questions[question].id)
                         }
                         break
                 }

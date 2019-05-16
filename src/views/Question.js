@@ -64,14 +64,14 @@ class Question extends Component {
      *
      * @memberof Question
      */
-    getPreviousQuestion = (question, questions, filteredQuestions) => {
+    getPreviousQuestion = (question, filteredQuestions) => {
         if (!filteredQuestions) return null
-        const currentId = filteredQuestions.indexOf(filteredQuestions[question])
+        const currentId = filteredQuestions.indexOf(question)
         if (currentId <= 0) {
             // Link to current question
-            return questions[question].id
+            return question
         }
-        return filteredQuestions[currentId - 1].id
+        return filteredQuestions[currentId - 1]
     }
 
     /**
@@ -79,14 +79,14 @@ class Question extends Component {
      *
      * @memberof Question
      */
-    getNextQuestion = (question, questions, filteredQuestions) => {
+    getNextQuestion = (question, filteredQuestions) => {
         if (!filteredQuestions) return null
-        const currentId = filteredQuestions.indexOf(questions[question])
+        const currentId = filteredQuestions.indexOf(question)
         if (currentId >= filteredQuestions.length - 1) {
             // Link to current question
-            return questions[question].id
+            return question
         }
-        return filteredQuestions[currentId + 1].id
+        return filteredQuestions[currentId + 1]
     }
 
     render() {
@@ -111,8 +111,8 @@ class Question extends Component {
 
         const { author, optionOne, optionTwo } = questions[question]
 
-        const previousQuestion = this.getPreviousQuestion(question, questions)
-        const nextQuestion = this.getNextQuestion(question, questions)
+        const previousQuestion = this.getPreviousQuestion(question, filteredQuestions)
+        const nextQuestion = this.getNextQuestion(question, filteredQuestions)
 
         return (
             <Fragment>
