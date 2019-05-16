@@ -15,24 +15,10 @@ import { Typography, Grid } from '@material-ui/core'
  * @extends {Component}
  */
 class CurrentQuestion extends Component {
-    componentDidMount = () => {
-        const { currentQuestion } = this.props.questions
-
-        if (!currentQuestion) {
-            this.retrieveNewQuestion()
-        }
-    }
-
-    retrieveNewQuestion = () => {
-        const { dispatch, authedUser } = this.props
-
-        dispatch(handleRetrieveNewQuestion(authedUser))
-    }
-
     render() {
-        const { currentQuestion } = this.props.questions
+        const { filteredQuestions } = this.props
 
-        if (!currentQuestion) {
+        if (!filteredQuestions) {
             return (
                 <Grid container justify="center" alignItems="center">
                     <Typography variant="h1">Loading question...</Typography>
@@ -40,14 +26,14 @@ class CurrentQuestion extends Component {
             )
         }
 
-        return <Redirect to={`questions/${currentQuestion}`} />
+        return <Redirect to={`questions/${filteredQuestions[0]}`} />
     }
 }
 
-function mapStateToProps({ authedUser, questions }) {
+function mapStateToProps({ authedUser, filteredQuestions }) {
     return {
         authedUser,
-        questions,
+        filteredQuestions,
     }
 }
 
