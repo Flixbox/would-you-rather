@@ -53,6 +53,7 @@ class Navigation extends Component {
         const { dispatch } = this.props
 
         dispatch(handleLogout())
+        this.props.history.push('/')
     }
 
     /**

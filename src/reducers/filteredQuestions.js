@@ -4,7 +4,6 @@ export default (state = {}, action) => {
     switch (action.type) {
         case RETRIEVE_FILTERED_QUESTIONS: {
             const { questions, filter, authedUser } = action
-            debugger
             let sortedQuestions = []
             for (const question in questions) {
                 const votes = [
