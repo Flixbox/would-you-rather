@@ -1,6 +1,6 @@
 # Would You Rather?
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Flixbox/would-you-rather.svg)](https://github.com/Flixbox/would-you-rather)
 ![David](https://img.shields.io/david/Flixbox/would-you-rather.svg)
 
