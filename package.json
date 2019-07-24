@@ -1,64 +1,76 @@
 {
-    "name": "would-you-rather",
-    "version": "0.1.0",
-    "private": true,
-    "homepage": "https://flixbox.github.io/would-you-rather/",
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.17",
-        "@fortawesome/free-solid-svg-icons": "^5.8.1",
-        "@fortawesome/react-fontawesome": "^0.1.4",
-        "@material-ui/core": "^3.9.3",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-minimal-pie-chart": "^4.0.0",
-        "react-redux": "^7.0.3",
-        "react-router-dom": "^5.0.0",
-        "react-scripts": "3.0.0",
-        "redux": "^4.0.1",
-        "redux-thunk": "^2.3.0"
-    },
-    "scripts": {
-        "preinstall": "npx use-yarn",
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "predeploy": "yarn run build",
-        "deploy": "gh-pages -d build"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [">0.2%", "not dead", "not op_mini all"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
-    },
-    "devDependencies": {
-        "gh-pages": "^2.0.1",
-        "husky": "^2.2.0",
-        "prettier": "1.17.0",
-        "pretty-quick": "^1.10.0",
-        "redux-devtools-extension": "^2.13.8",
-        "use-yarn": "^2.2.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx)\"",
-            "post-commit": "yarn run deploy"
-        }
-    },
-    "prettier": {
-        "arrowParens": "avoid",
-        "bracketSpacing": true,
-        "jsxBracketSameLine": false,
-        "jsxSingleQuote": false,
-        "printWidth": 100,
-        "proseWrap": "preserve",
-        "requirePragma": false,
-        "tabWidth": 4,
-        "useTabs": false,
-        "singleQuote": true,
-        "trailingComma": "es5",
-        "semi": false
+  "name": "would-you-rather",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://flixbox.github.io/would-you-rather/",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^3.9.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-minimal-pie-chart": "^4.0.0",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "snyk": "^1.198.0"
+  },
+  "scripts": {
+    "preinstall": "npx use-yarn",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "husky": "^2.2.0",
+    "prettier": "1.17.0",
+    "pretty-quick": "^1.10.0",
+    "redux-devtools-extension": "^2.13.8",
+    "use-yarn": "^2.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx)\"",
+      "post-commit": "yarn run deploy"
     }
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "printWidth": 100,
+    "proseWrap": "preserve",
+    "requirePragma": false,
+    "tabWidth": 4,
+    "useTabs": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "semi": false
+  },
+  "snyk": true
 }
