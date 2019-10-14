@@ -37,7 +37,7 @@
         "gh-pages": "^2.0.1",
         "husky": "^2.2.0",
         "prettier": "1.17.0",
-        "pretty-quick": "^1.10.0",
+        "pretty-quick": "^2.0.0",
         "redux-devtools-extension": "^2.13.8",
         "use-yarn": "^2.2.0"
     },
