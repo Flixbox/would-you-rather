@@ -35,7 +35,7 @@
     },
     "devDependencies": {
         "gh-pages": "^2.0.1",
-        "husky": "^2.2.0",
+        "husky": "^4.0.9",
         "prettier": "1.17.0",
         "pretty-quick": "^1.10.0",
         "redux-devtools-extension": "^2.13.8",
